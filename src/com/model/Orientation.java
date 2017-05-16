@@ -16,7 +16,7 @@ public class Orientation {
 	public Orientation(String nom, Escalier[] escaliers) {
 		this.nom=nom;
 		this.escalier=new HashMap<>();
-		for(int i=0; i==escaliers.length; i++){
+		for(int i=0; i<escaliers.length; i++){
 			escalier.put(i, escaliers[i]);
 		}
 	}

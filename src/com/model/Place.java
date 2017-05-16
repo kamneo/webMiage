@@ -3,8 +3,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Place")
 public class Place {
-	private static int numero;
-	private static boolean estLibre;
+	private int numero;
+	private boolean estLibre;
 
 	/**
 	 * 
@@ -20,7 +20,7 @@ public class Place {
 	 * 
 	 * @return
 	 */
-	public static int getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
@@ -29,14 +29,14 @@ public class Place {
 	 * @param numero
 	 */
 	public void setNumero(int numero) {
-		Place.numero = numero;
+		this.numero = numero;
 	}
 
 	/**
 	 * 
 	 * @return
 	 */
-	public static boolean isestLibre() {
+	public boolean isestLibre() {
 		return estLibre;
 	}
 
@@ -45,7 +45,7 @@ public class Place {
 	 * @param estAchetee
 	 */
 	public void setestLibre(boolean estAchetee) {
-		Place.estLibre = estAchetee;
+		this.estLibre = estAchetee;
 	}
 
 }

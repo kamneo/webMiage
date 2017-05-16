@@ -18,7 +18,7 @@ public class Escalier {
 	public Escalier(String nom, Rang[] rangs) {
 		this.nom=nom;
 		this.rang=new HashMap<>();
-		for(int i=0; i==rangs.length; i++){
+		for(int i=0; i<rangs.length; i++){
 			this.rang.put(i, rangs[i]);
 		}
 	}
