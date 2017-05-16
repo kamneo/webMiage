@@ -1,28 +1,28 @@
 package com.model;
 
 public class Place {
-	private static int numero;
-	private static boolean estLibre;
+	private int numero;
+	private boolean estLibre;
 
 	public Place(int numero, boolean estAchetee) {
 		this.setNumero(numero);
 		this.setestLibre(false);
 	}
 
-	public static int getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
 	public void setNumero(int numero) {
-		Place.numero = numero;
+		this.numero = numero;
 	}
 
-	public static boolean isestLibre() {
+	public boolean isestLibre() {
 		return estLibre;
 	}
 
 	public void setestLibre(boolean estAchetee) {
-		Place.estLibre = estAchetee;
+		this.estLibre = estAchetee;
 	}
 
 }
