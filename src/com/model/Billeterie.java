@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.HashMap;
 
+import com.model.Event.Event;
+
 public class Billeterie {
 	private Stade_Impl stade;
 	private HashMap<Integer, Event> events;
