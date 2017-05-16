@@ -15,7 +15,7 @@ public class Rang {
 	 * Construit l'objet Rang avec le numéro @param nom et crée HashMap avec des couples id/Place
 	 */
 	public Rang(int numeroRang, Place[] p){
-		this.setNumeroRang(numeroRang);
+		this.setnumeroRang(numeroRang);
 		places = new HashMap<Integer, Place>();
 		
 		for(int i = 0; i<p.length; i++){
@@ -43,5 +43,8 @@ public class Rang {
 		this.numeroRang = numeroRang;
 	}
 	
+	public HashMap<Integer, Place> getPlaces(){
+		return places;
+	}
 
 }
