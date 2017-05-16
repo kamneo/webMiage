@@ -2,16 +2,18 @@ package com.model;
 
 import java.util.HashMap;
 import com.model.Escalier;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "Orientation")
 public class Orientation {
 	private String nom;
 	private HashMap<Integer,Escalier> escalier;
 	
 	/**
 	 * Constructeur
-	 * @param nom 		= nom de l'oriantation : EST, OUEST, NORD, SUD
+	 * @param nom - le nom donnée à l'orientaiton
 	 * @param escaliers = Liste des escaliers qui compose l'orientation
-	 * Construit l'objet Oriantation du nom de @param nom et crée HashMap avec des couples id/Escalier
+	 * Construit l'objet Orientation du nom de @param nom et crée HashMap avec des couples id/Escalier
 	 */
 	public Orientation(String nom, Escalier[] escaliers) {
 		this.nom=nom;
