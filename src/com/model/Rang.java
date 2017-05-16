@@ -8,8 +8,14 @@ public class Rang {
 	private HashMap<Integer, Place> places;
 	private int numeroRang;
 	
+	/**
+	 * Constructeur
+	 * @param numeroRang 	= nomero du rang
+	 * @param p 			= Liste des places qui compose le rang
+	 * Construit l'objet Rang avec le numéro @param nom et crée HashMap avec des couples id/Place
+	 */
 	public Rang(int numeroRang, Place[] p){
-		this.setnumeroRang(numeroRang);
+		this.setNumeroRang(numeroRang);
 		places = new HashMap<Integer, Place>();
 		
 		for(int i = 0; i<p.length; i++){
@@ -18,9 +24,15 @@ public class Rang {
 		
 	}
 
-	public void setnumeroRang(int numeroRang) {
-	
-		this.setNumeroRang(numeroRang);
+	/**
+	 * getPlaces retourne les combos 
+	 **/
+	public HashMap<Integer, Place> getPlaces() {
+		return places;
+	}
+
+	public void setPlaces(HashMap<Integer, Place> places) {
+		this.places = places;
 	}
 
 	public int getNumeroRang() {
@@ -31,8 +43,5 @@ public class Rang {
 		this.numeroRang = numeroRang;
 	}
 	
-	public HashMap<Integer, Place> getPlaces(){
-		return places;
-	}
 
 }
