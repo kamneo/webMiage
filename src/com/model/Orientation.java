@@ -1,4 +1,5 @@
 package com.model;
+<<<<<<< HEAD
 
 import java.util.HashMap;
 import com.model.Escalier;
@@ -28,3 +29,11 @@ public class Orientation {
 		this.escalier = escalier;
 	}
 }
+=======
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Orientation")
+public class Orientation {
+
+}
+>>>>>>> branch 'master' of https://github.com/kamneo/webMiage.git

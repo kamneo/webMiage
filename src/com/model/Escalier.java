@@ -2,7 +2,9 @@ package com.model;
 
 import java.util.HashMap;
 import com.model.Rang;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "Escalier")
 public class Escalier {
 	private String nom;
 	private HashMap<Integer,Rang> rang;
