@@ -1,7 +1,6 @@
 package com.model;
 
 import java.util.HashMap;
-import com.model.Escalier;
 
 public class Categorie {
 	private String nom;
