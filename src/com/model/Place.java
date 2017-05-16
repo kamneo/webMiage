@@ -2,11 +2,11 @@ package com.model;
 
 public class Place {
 	private static int numero;
-	private static boolean estAchetee;
+	private static boolean estLibre;
 
 	public Place(int numero, boolean estAchetee) {
 		this.setNumero(numero);
-		this.setEstAchetee(false);
+		this.setestLibre(false);
 	}
 
 	public static int getNumero() {
@@ -17,12 +17,12 @@ public class Place {
 		Place.numero = numero;
 	}
 
-	public static boolean isEstAchetee() {
-		return estAchetee;
+	public static boolean isestLibre() {
+		return estLibre;
 	}
 
-	public void setEstAchetee(boolean estAchetee) {
-		Place.estAchetee = estAchetee;
+	public void setestLibre(boolean estAchetee) {
+		Place.estLibre = estAchetee;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.model;
 
-public class Rang {
+import java.util.HashMap;
 
+public class Rang {
+	private HashMap<String, Place> places;
 }
