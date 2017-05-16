@@ -30,5 +30,9 @@ public class Rang {
 	public void setNumeroRang(int numeroRang) {
 		this.numeroRang = numeroRang;
 	}
+	
+	public HashMap<Integer, Place> getPlaces(){
+		return places;
+	}
 
 }
