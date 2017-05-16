@@ -12,8 +12,8 @@ public class Orientation {
 	/**
 	 * Constructeur
 	 * @param nom - le nom donnée à l'orientaiton
-	 * @param escaliers = Liste des escaliers qui compose l'orientation
-	 * Construit l'objet Orientation du nom de @param nom et crée HashMap avec des couples id/Escalier
+	 * @param escaliers - Liste des escaliers qui compose l'orientation
+	 * Construit l'objet Orientation du nom du parametre et crée HashMap avec des couples id/Escalier
 	 */
 	public Orientation(String nom, Escalier[] escaliers) {
 		this.nom=nom;
@@ -32,6 +32,7 @@ public class Orientation {
 	
 	/**
 	 * setNom permet de changer le nom de l'orientation
+	 * @param nom - Le nom à affecter à l'orientation
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -46,6 +47,7 @@ public class Orientation {
 	
 	/**
 	 * setNom permet de remplacer la liste des couples id/Escalier pour une autre liste de couple
+	 * @param escalier - liste des id/Escalier à affecter
 	 */
 	public void setEscalier(HashMap<Integer, Escalier> escalier) {
 		this.escalier = escalier;
