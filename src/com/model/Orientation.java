@@ -10,6 +10,15 @@ public class Orientation {
 	private HashMap<Integer,Escalier> escalier;
 	
 	/**
+	 * Constructeur par défaut
+	 */
+	public Orientation(){
+		super();
+		this.nom="Defaut";
+		this.escalier=new HashMap<>();
+	}
+	
+	/**
 	 * Constructeur
 	 * @param nom - le nom donnée à l'orientaiton
 	 * @param escaliers - Liste des escaliers qui compose l'orientation

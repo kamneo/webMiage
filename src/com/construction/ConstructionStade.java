@@ -3,7 +3,9 @@ package com.construction;
 import com.model.*;
 
 public class ConstructionStade {
-	public static void main(String[] args) {
+	private Stade_Impl stade;
+	
+	public ConstructionStade(){
 		Place[] p = new Place[20];
 		for (int i = 0; i < p.length; i++) {
 			p[i] = new Place(i, false);
@@ -33,8 +35,10 @@ public class ConstructionStade {
 				o[i] = new Orientation("Fosse", e.clone());
 		}
 		
-		Stade_Impl s = new Stade_Impl("le plus beau", o);
-		
-		System.out.println("nb place stage = " + s.getNbPlace());
+		stade = new Stade_Impl("le plus beau", o);
+	}
+	
+	public Stade_Impl getStade(){
+		return stade;
 	}
 }
