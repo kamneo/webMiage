@@ -10,19 +10,13 @@ import com.model.Evenement.Sport;
 public class Billeterie {
 	private Stade_Impl stade;
 	private HashMap<Integer, Evenement> evenements;
-<<<<<<< HEAD
-	private HashMap<Integer, Double> reduction;
+	private HashMap<String, Double> reduction;
 	
 	/**
 	 * Constructeur par défaut
 	 * Crée une billéterie avec un liste vide 
 	 */
-	public Billeterie(){
-=======
-	private HashMap<String, Double> reduction;
-
 	public Billeterie() {
->>>>>>> 1288926f4df07119eedf2c0721b9ea551ec3d5fd
 		setStade(new Stade_Impl());
 		evenements = new HashMap<Integer, Evenement>();
 		reduction = new HashMap<String, Double>();
@@ -33,18 +27,13 @@ public class Billeterie {
 		reduction.put("Partenaire", 0.75);
 	}
 	
-<<<<<<< HEAD
 	/**
 	 * @param idEvent - id de l'event concerné
 	 * @param idCat - id de la catégorie concerné
 	 * @param idReduction - id de la 
 	 * @return le prix de la prix d'une catégorie pour un evenement donné et une réduction donnée
 	 */
-	public double CalculerPrix(int idEvent, String idCat, String categoriePersonne){
-=======
-
 	public double CalculerPrix(int idEvent, String idCat, String categoriePersonne) {
->>>>>>> 1288926f4df07119eedf2c0721b9ea551ec3d5fd
 		double prixPlace = evenements.get(idEvent).getPrixCat(idCat) * reduction.get(categoriePersonne);
 		return prixPlace;
 	}
