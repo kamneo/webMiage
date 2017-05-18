@@ -8,7 +8,7 @@ public class ConstructionStade {
 	public ConstructionStade(){
 		Place[] p = new Place[20];
 		for (int i = 0; i < p.length; i++) {
-			p[i] = new Place(i, false);
+			p[i] = new Place(i);
 		}
 
 		Rang[] r = new Rang[20];
