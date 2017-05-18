@@ -1,4 +1,5 @@
 package com.model;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Place")
@@ -7,14 +8,29 @@ public class Place {
 	private boolean estLibre;
 
 	/**
+<<<<<<< HEAD
 	 * Constructeur
+=======
+	 * constructeur par défault
+	 */
+	public Place(){
+		
+	}
+	
+	/**
+	 * 
+>>>>>>> 1288926f4df07119eedf2c0721b9ea551ec3d5fd
 	 * @param numero
 	 * @param estAchetee
 	 * Construit l'objet Place avec le numéro passe en premier paramètre et non réservé
 	 */
 	public Place(int numero) {
 		this.setNumero(numero);
+<<<<<<< HEAD
 		this.setEstLibre(true);
+=======
+		this.setestLibre(true);
+>>>>>>> 1288926f4df07119eedf2c0721b9ea551ec3d5fd
 	}
 
 	/**

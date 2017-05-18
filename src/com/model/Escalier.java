@@ -10,6 +10,13 @@ public class Escalier {
 	private HashMap<Integer,Rang> rang;
 	
 	/**
+	 * constructeur par défault
+	 */
+	public Escalier(){
+		
+	}
+	
+	/**
 	 * Constructeur
 	 * @param nom 		= nom de l'escalier
 	 * @param escaliers = Liste des rangs qui compose l'escalier

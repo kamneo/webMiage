@@ -1,12 +1,20 @@
 package com.model;
 
 import java.util.HashMap;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Rang")
 public class Rang {
 	private HashMap<Integer, Place> places;
 	private int numeroRang;
+	
+	/**
+	 * constructeur par défault
+	 */
+	public Rang(){
+		
+	}
 	
 	/**
 	 * Constructeur

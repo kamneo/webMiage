@@ -3,6 +3,8 @@ package com.tests;
 import com.construction.ConstructionStade;
 import com.model.Stade_Impl;
 
+import java.io.File;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -14,14 +16,14 @@ public class BuildXML {
 
 		try {
 
-			// File file = new File("file.xml");
+			 File file = new File("file.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(Stade_Impl.class);
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
 			// output pretty printed
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-			// jaxbMarshaller.marshal(stade, file);
+			jaxbMarshaller.marshal(stade, file);
 			jaxbMarshaller.marshal(stade, System.out);
 
 		} catch (JAXBException e) {
