@@ -38,9 +38,9 @@ public class EvenementMetier {
     public void creerEvenement(int typeEv){
     	Evenement e;
     	if(typeEv == 0)
-    		creerSport();
+    		Billeterie.creerSport();
     	else
-    		creerMusique();
+    		Billeterie.creerMusique();
     }
 
 }

@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Orientation")
 public class Orientation {
 	private String nom;
-	private HashMap<Integer,Escalier> escalier;
+	private HashMap<String,Escalier> escalier;
 	
 	/**
 	 * Constructeur par défaut
@@ -26,7 +26,7 @@ public class Orientation {
 		this.nom=nom;
 		this.escalier=new HashMap<>();
 		for(int i=0; i<escaliers.length; i++){
-			escalier.put(i, escaliers[i]);
+			escalier.put(escaliers[i].getNomEsc(), escaliers[i]);
 		}
 	}
 	
@@ -50,7 +50,7 @@ public class Orientation {
 	 * @return escalier
 	 * getEscalier renvoi la liste des Escaliers et de leur id
 	 */
-	public HashMap<Integer, Escalier> getEscalier() {
+	public HashMap<String, Escalier> getEscalier() {
 		return escalier;
 	}
 	
@@ -58,7 +58,7 @@ public class Orientation {
 	 * @param escalier - liste des id/Escalier à affecter
 	 * setNom permet de remplacer la liste des couples id/Escalier pour une autre liste de couple
 	 */
-	public void setEscalier(HashMap<Integer, Escalier> escalier) {
+	public void setEscalier(HashMap<String, Escalier> escalier) {
 		this.escalier = escalier;
 	}
 }
