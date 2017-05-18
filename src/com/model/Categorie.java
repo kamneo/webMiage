@@ -3,20 +3,20 @@ package com.model;
 import java.util.HashMap;
 
 public class Categorie {
-	private String nom;
+	private String nomCat;
 	private HashMap<String,Escalier> escalier;
 	
-	public Categorie(String nom, Integer nbPlace) {
+	public Categorie(String nomCat, Escalier[] escaliers) {
 		//Todo
-		this.nom = nom;
+		this.nomCat = nomCat;
 		escalier=null;
 	}
 	
-	public String getNom() {
-		return nom;
+	public String getNomCat() {
+		return nomCat;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNom(String nomCat) {
+		this.nomCat = nomCat;
 	}
 	public HashMap<String, Escalier> getEscalier() {
 		return escalier;

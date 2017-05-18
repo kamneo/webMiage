@@ -2,20 +2,20 @@ package com.model;
 
 import java.util.HashMap;
 
-import com.model.Event.Event;
+import com.model.Evenement.*;
 
 public class Billeterie {
 	private Stade_Impl stade;
-	private HashMap<Integer, Event> events;
+	private HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
 	
 	public Billeterie(){
 		setStade(new Stade_Impl());
-		events = new HashMap<Integer, Event>();
+		evenements = new HashMap<Integer, Evenement>();
 	}
 	
 	public double acheterPlace(int idEvent, String idCat, int idReduction){
-		double prixPlace = events.get((Integer)idEvent).getPrixCat(idCat) * reduction.get((Integer)idReduction);
+		double prixPlace = evenements.get((Integer)idEvent).getPrixCat(idCat) * reduction.get((Integer)idReduction);
 		return prixPlace;
 	}
 

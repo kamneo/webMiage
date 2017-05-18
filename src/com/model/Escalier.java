@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Escalier")
 public class Escalier {
-	private String nom;
+	private String nomEsc;
 	private HashMap<Integer,Rang> rang;
 	
 	/**
@@ -15,8 +15,8 @@ public class Escalier {
 	 * @param escaliers = Liste des rangs qui compose l'escalier
 	 * Construit l'objet Escalier du nom de @param nom et crée HashMap avec des couples id/escalier
 	 */
-	public Escalier(String nom, Rang[] rangs) {
-		this.nom=nom;
+	public Escalier(String nomEsc, Rang[] rangs) {
+		this.nomEsc=nomEsc ;
 		this.rang=new HashMap<>();
 		for(int i=0; i<rangs.length; i++){
 			this.rang.put(i, rangs[i]);
@@ -26,15 +26,15 @@ public class Escalier {
 	/**
 	 * getNom renvoi le nom de l'escaliler
 	 */
-	public String getNom() {
-		return nom;
+	public String getNomEsc() {
+		return nomEsc;
 	}
 	
 	/**
 	 * setNom permet de changer le nom de l'escalier
 	 */
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomEsc(String nomEsc) {
+		this.nomEsc = nomEsc;
 	}
 	
 	/**
