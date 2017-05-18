@@ -25,23 +25,38 @@ public class Rang {
 	}
 
 	/**
-	 * getPlaces retourne les combos 
-	 **/
+	 * @return places
+	 * getPlaces renvoi les couple 'id/place 
+	 */
 	public HashMap<Integer, Place> getPlaces() {
 		return places;
 	}
 
+	/**
+	 * @param places
+	 * setPlaces permet d'attribuer de nouveau couple id/place
+	 */
 	public void setPlaces(HashMap<Integer, Place> places) {
 		this.places = places;
 	}
 
+	/**
+	 * @return numeroRang+
+	 * getNumeroRang retourne le numéro du rang
+	 */
 	public int getNumeroRang() {
 		return numeroRang;
 	}
 
+	/**
+	 * @param numeroRang the numeroRang to set
+	 * setNumeroRang permet de changer le numero du rang
+	 */
 	public void setNumeroRang(int numeroRang) {
 		this.numeroRang = numeroRang;
 	}
+
+
 	
 
 }

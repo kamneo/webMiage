@@ -7,45 +7,45 @@ public class Place {
 	private boolean estLibre;
 
 	/**
-	 * 
+	 * Constructeur
 	 * @param numero
 	 * @param estAchetee
+	 * Construit l'objet Place avec le numéro passe en premier paramètre et non réservé
 	 */
-	public Place(int numero, boolean estAchetee) {
+	public Place(int numero) {
 		this.setNumero(numero);
-		this.setestLibre(false);
+		this.setEstLibre(true);
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return numero
+	 * getNumero renvoi le nuéro de la place
 	 */
 	public int getNumero() {
 		return numero;
 	}
 
 	/**
-	 * 
 	 * @param numero
+	 * setNumero permet de changer le numéro de la place
 	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
 	/**
-	 * 
-	 * @return
+	 * @return the estLibre
+	 * isEstLibre retourn true si la place est libre et false dans le cas contraire
 	 */
-	public boolean isestLibre() {
+	public boolean isEstLibre() {
 		return estLibre;
 	}
 
 	/**
-	 * 
-	 * @param estAchetee
+	 * @param estLibre the estLibre to set
+	 * permet de changer la valeur de estLibre 
 	 */
-	public void setestLibre(boolean estAchetee) {
-		this.estLibre = estAchetee;
+	public void setEstLibre(boolean estLibre) {
+		this.estLibre = estLibre;
 	}
-
 }

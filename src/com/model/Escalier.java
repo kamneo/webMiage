@@ -13,7 +13,7 @@ public class Escalier {
 	 * Constructeur
 	 * @param nom 		= nom de l'escalier
 	 * @param escaliers = Liste des rangs qui compose l'escalier
-	 * Construit l'objet Escalier du nom de @param nom et crée HashMap avec des couples id/escalier
+	 * Construit l'objet Escalier du nom du premier paramètre et crée des couples id/escalier
 	 */
 	public Escalier(String nomEsc, Rang[] rangs) {
 		this.nomEsc=nomEsc ;
@@ -24,6 +24,7 @@ public class Escalier {
 	}
 	
 	/**
+	 * @return nomEsc
 	 * getNom renvoi le nom de l'escaliler
 	 */
 	public String getNomEsc() {
@@ -31,6 +32,7 @@ public class Escalier {
 	}
 	
 	/**
+	 * @param nomEsc - Le nom à affecter à l'escalier
 	 * setNom permet de changer le nom de l'escalier
 	 */
 	public void setNomEsc(String nomEsc) {
@@ -38,6 +40,7 @@ public class Escalier {
 	}
 	
 	/**
+	 * @return rang
 	 * getRang renvoi la liste des rang et de leur id
 	 */
 	public HashMap<Integer, Rang> getRang() {
@@ -45,6 +48,7 @@ public class Escalier {
 	}
 	
 	/**
+	 * @param rangs - Les couple id/rang à affecter à l'orientation
 	 * setRang permet de remplacer la liste des couples id/rang pour une autre liste de couple
 	 */
 	public void setRang(HashMap<Integer, Rang> rangs) {

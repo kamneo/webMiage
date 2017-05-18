@@ -9,10 +9,12 @@ public class Billeterie {
 	private HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
 	
+	
 	public Billeterie(){
 		setStade(new Stade_Impl());
 		evenements = new HashMap<Integer, Evenement>();
 	}
+	
 	
 	public double acheterPlace(int idEvent, String idCat, int idReduction){
 		double prixPlace = evenements.get((Integer)idEvent).getPrixCat(idCat) * reduction.get((Integer)idReduction);
