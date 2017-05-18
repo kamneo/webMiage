@@ -1,4 +1,5 @@
 package com.model;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Place")
@@ -7,13 +8,20 @@ public class Place {
 	private boolean estLibre;
 
 	/**
+	 * constructeur par défault
+	 */
+	public Place(){
+		
+	}
+	
+	/**
 	 * 
 	 * @param numero
 	 * @param estAchetee
 	 */
 	public Place(int numero, boolean estAchetee) {
 		this.setNumero(numero);
-		this.setestLibre(false);
+		this.setestLibre(true);
 	}
 
 	/**

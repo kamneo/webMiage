@@ -6,6 +6,13 @@ public class Categorie {
 	private String nomCat;
 	private HashMap<String,Escalier> escalier;
 	
+	/**
+	 * constructeur par défault
+	 */
+	public Categorie(){
+	
+	}
+	
 	public Categorie(String nomCat, Escalier[] escaliers) {
 		//Todo
 		this.nomCat = nomCat;
