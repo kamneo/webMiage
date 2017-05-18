@@ -1,6 +1,9 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 import com.model.Categorie;
 import com.sun.org.apache.xpath.internal.operations.Or;
 
@@ -12,25 +15,26 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "Stade")
 public class Stade_Impl {
 	private String nom;
-	private HashMap<String, Object> orientation;
+	//private HashMap<String, Object> orientation;
+	private ArrayList<Orientation> orientation;
 
 	public Stade_Impl() {
 		this.nom = "defaut";
-		orientation = new HashMap<String, Object>();
+		orientation = new ArrayList<Orientation>();
 	}
 	
 	public Stade_Impl(String nom, Orientation[] or) {
 		this.nom = nom;
-		orientation = new HashMap<String, Object>();
+		orientation = new ArrayList<Orientation>();
 		for (int i = 0; i < or.length; i++) {
-			orientation.put(or[i].getNom(), or[i]);
+			orientation.add(or[i]);
 		}
 	}
 
 	@XmlElement(name="nbPlace")
 	public long getNbPlace() {
 		long count = 0;
-		for (Object o : orientation.values()) {
+		for (Object o : orientation) {
 			for (Escalier e : ((Orientation) o).getEscalier().values()) {
 				for(Rang r : e.getRang().values()){
 					count += r.getPlaces().size();
@@ -47,7 +51,7 @@ public class Stade_Impl {
 	}
 	
 	@XmlElement(name="orientation")
-	public HashMap<String, Object> getOrientations() {
-		return orientation;
+	public ArrayList<Orientation> getOrientations() {
+		return orientation; 
 	}
 }

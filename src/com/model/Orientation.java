@@ -14,8 +14,6 @@ public class Orientation {
 	 */
 	public Orientation(){
 		super();
-		this.nom="Defaut";
-		this.escalier=new HashMap<>();
 	}
 	
 	/**
