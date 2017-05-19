@@ -1,6 +1,7 @@
 package com.tests;
 
 import com.construction.ConstructionStade;
+import com.model.Billeterie;
 import com.model.Stade_Impl;
 
 import java.io.File;
@@ -11,6 +12,11 @@ import javax.xml.bind.Marshaller;
 
 public class BuildXML {
 	public static void main(String[] args) {
+		buildStade();
+
+	}
+	
+	public static void buildStade(){
 		ConstructionStade cs = new ConstructionStade();
 		Stade_Impl stade = cs.getStade();
 
@@ -29,7 +35,10 @@ public class BuildXML {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
-
+	}
+	
+	public static void buildEvenement(){
+		Billeterie b = new Billeterie();
 	}
 
 }
