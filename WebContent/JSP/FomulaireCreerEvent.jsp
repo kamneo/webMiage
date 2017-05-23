@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<form method="get" action="EvenementServ">
+		<form method="get" action="../EvenementServ">
 			<fieldset>
 				<legend>Création d'un évenement</legend>
 

@@ -21,7 +21,7 @@
 		</form>
 	</div>
 	<div>
-		<form method="get" action="ClientServ">
+		<form method="get" action="../ClientServ">
 			<fieldset>
 				<legend>Inscription</legend>
 				<label for="mail">Mail <span class="requis"></span></label>
