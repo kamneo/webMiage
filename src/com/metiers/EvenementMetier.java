@@ -1,6 +1,7 @@
 package com.metiers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.model.Billeterie;
 import com.model.Evenement.Evenement;
@@ -14,20 +15,29 @@ public class EvenementMetier {
 		
 	}
 	
+	/**
+	 * methode qui retourne tous les évenements créés dans la billeterie
+	 * @return ArrayList<Evenement> - Liste des evenements disponible
+	 */
     public ArrayList<Evenement> getAllEvenement() {
         System.out.println("getEvenement");
         return Billeterie.getAllEvenements();
     }
 	
+    /**
+     * Methode qui retourne l'évenement en fonction de son nom dans la billeterie. 
+     * S'il l'evenement n'existe pas, un exception est générée.
+     * @param nomEv - nom de l'evenement à rechercher
+     * @return Evenement - l'evenement recherché
+     */
     public Evenement getEvenement(String nomEv) {
         System.out.println("getEvent");
-
-        if (Billeterie.getEvenements().containsKey(nomEv)) {
-            return Billeterie.getEvenements().get(nomEv);
-        }
-        
+       
         try {
-			throw new Exception("Evenement introuvable");
+            if (Billeterie.getEvenements().containsKey(nomEv))
+                return Billeterie.getEvenements().get(nomEv);
+            else
+            	throw new Exception("Evenement introuvable");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,12 +45,12 @@ public class EvenementMetier {
 		return null;
     }
     
-    public void creerEvenement(int typeEv){
+    public void creerEvenement(int typeEv, String nomEv,  String date, HashMap<String, Double> tarif){
     	Evenement e;
     	if(typeEv == 0)
-    		Billeterie.creerSport();
+    		BilleterieMetier.creerSport(nomEv, date, tarif);
     	else
-    		Billeterie.creerMusique();
+    		BilleterieMetier.creerMusique(nomEv, date, tarif);
     }
 
 }

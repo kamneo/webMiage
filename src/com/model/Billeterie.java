@@ -91,4 +91,19 @@ public class Billeterie {
 		return false;
 	}
 
+	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void supprimerEvenement(String nomEv) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
