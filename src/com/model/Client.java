@@ -11,7 +11,7 @@ public class Client {
 		
 	}
 
-	public Client(String mail, String mdp, String nom, String prenom){ //contructeur client non administrateur
+	public Client(String mail, String mdp, String nom, String prenom){ //constructeur client non administrateur
 		this.setMail(mail);
 		this.setMdp(mdp);
 		this.setNom(nom);
@@ -19,7 +19,7 @@ public class Client {
 		this.setAdmin(false);
 		
 	}
-	public Client(String mail, String mdp, String nom, String prenom, boolean admin){ //contructeur client administrateur
+	public Client(String mail, String mdp, String nom, String prenom, boolean admin){ //constructeur client
 		this.setMail(mail);
 		this.setMdp(mdp);
 		this.setNom(nom);
