@@ -17,7 +17,7 @@ import com.model.Evenement.Sport;
 /**
  * Servlet implementation class Stade
  */
-@WebServlet("/Evenement")
+@WebServlet("/EvenementServ")
 public class EvenementServ extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nom = request.getParameter("nomEvent");
@@ -41,7 +41,6 @@ public class EvenementServ extends HttpServlet{
 			}
 		}
 		request.setAttribute("evnt", evnt);
-
 		this.getServletContext().getRequestDispatcher("/afficherEvnt.jsp").forward(request, response);
 	}
 }
