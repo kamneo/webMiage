@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+	
 <title>Création d'un évènement</title>
 </head>
 <body>
@@ -11,12 +12,12 @@
 			<fieldset>
 				<legend>Création d'un évenement</legend>
 
-				<label for="nomEvent">Nom de l'event <span class="requis"></span></label>
-				<input type="text" id="nomEvent" name="nomEvent" value="" size="20"	maxlength="20"/> <br/>
-				<label for="DateEvent">Date de l'évènement </label>
-				<input type="text" id="DateEvent" name="DateEvent" value="" size="20" maxlength="20"/> <br/>
-				<label for="TypeEvent">Type de l'Event <span class="requis"></span></label>
-				<select name="select1">
+				<label for="nomEv">Nom de l'event <span class="requis"></span></label>
+				<input type="text" id="nomEv" name="nomEv" value="" size="20"	maxlength="20"/> <br/>
+				<label for="date">Date de l'évènement </label>
+				<input type="text" id="date" name="date" value="" size="20" maxlength="20"/> <br/>
+				<label for="typeEv">Type de l'Event <span class="requis"></span></label>
+				<select name="typeEv">
 					<option value="Match">Match</option>
 					<option value="Concert">Concert</option>
 				</select> <br /> 
