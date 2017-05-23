@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.model.Client;
 /**
- * Servlet implementation class Stade
+ * Servlet implementation class Client
  */
 @WebServlet("/ClientServ")
 public class ClientServ extends HttpServlet {

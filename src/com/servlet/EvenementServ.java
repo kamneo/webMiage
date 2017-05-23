@@ -15,7 +15,7 @@ import com.model.Evenement.Musique;
 import com.model.Evenement.Sport;
 
 /**
- * Servlet implementation class Stade
+ * Servlet implementation class Evenement
  */
 @WebServlet("/EvenementServ")
 public class EvenementServ extends HttpServlet{
