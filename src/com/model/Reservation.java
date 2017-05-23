@@ -52,4 +52,8 @@ public class Reservation {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public HashMap<Integer, Billet> getBillets() {
+		return billets;
+	}
 }
