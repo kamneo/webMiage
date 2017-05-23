@@ -47,4 +47,9 @@ public class Reservation {
 	public void setMailClient(String mailClient) {
 		this.mailClient = mailClient;
 	}
+
+	public boolean validerReservation() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

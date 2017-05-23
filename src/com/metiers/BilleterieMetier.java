@@ -31,4 +31,10 @@ public class BilleterieMetier {
 	public static void supprimerEvenement(String nomEv) {
 		billeterie.supprimerEvenement(nomEv);
 	}
+	
+	public static void validerReservation(Reservation[] res){
+		for(int i=0;i<res.length;i++){ 
+			billeterie.acheterPlace(res[i]);
+		}
+	}
 }

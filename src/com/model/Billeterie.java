@@ -51,25 +51,11 @@ public class Billeterie {
 	}
 
 	public void supprimerEvenement(String nomEv) {
-		for(Evenement e : evenements.values())
-			if(e.getNomEv().equals(nomEv)){
+		for (Evenement e : evenements.values())
+			if (e.getNomEv().equals(nomEv)) {
 				evenements.values().remove(e);
 				return;
 			}
-	}
-	
-	public void acheterPlace(int idEvent, String idCat, int idReduction, Orientation or, Escalier esc, Rang r, Place p, String mailClient) throws Exception {
-		// Vérifiaction que la place est toujours libre et si elle est accessible
-		if(!p.isEstLibre() && myContains(evenements.get(idEvent).getCatAccessibles(), idCat) && myContains(evenements.get(idEvent).getOrientationAccessibles(), or.getNom()))
-			throw new Exception("la place n'est pas disponible !");
-		
-		double prixPlace = evenements.get((Integer) idEvent).getPrixCat(idCat) * getReduction().get((Integer) idReduction);
-		Billet b = new Billet(or, esc, r, p, prixPlace);
-		p.setEstLibre(false);
-		
-		Reservation resa = new Reservation(evenements.get((Integer) idEvent).getNomEv(), b, mailClient);
-		Reservation_BD rBD = Reservation_BD.getInstance();
-		rBD.ajouterResa(resa);
 	}
 
 	public void supprimerEvenement(int idEv) {
@@ -84,10 +70,18 @@ public class Billeterie {
 		this.reduction = reduction;
 	}
 
-	private boolean myContains(Object[] tab, Object o){
-		for(int i = 0; i<tab.length; i++)
-			if(tab[i].equals(o))
+	private boolean myContains(Object[] tab, Object o) {
+		for (int i = 0; i < tab.length; i++)
+			if (tab[i].equals(o))
 				return true;
 		return false;
+	}
+
+	public void acheterPlace(Reservation reservation) throws Exception {
+		if(!reservation.validerReservation())
+			throw new Exception("Reservation non valide");
+		
+		Reservation_BD rBD = Reservation_BD.getInstance();
+		rBD.ajouterResa(reservation);
 	}
 }

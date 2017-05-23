@@ -1,5 +1,6 @@
 package com.metiers;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -45,7 +46,7 @@ public class EvenementMetier {
 		return null;
     }
     
-    public void creerEvenement(int typeEv, String nomEv,  String date, HashMap<String, Double> tarif){
+    public void creerEvenement(int typeEv, String nomEv,  String date, HashMap<String, Double> tarif) throws ParseException{
     	Evenement e;
     	if(typeEv == 0)
     		BilleterieMetier.creerSport(nomEv, date, tarif);
