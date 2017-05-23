@@ -1,5 +1,7 @@
 package com.model;
 
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class Reservation_BD {
@@ -32,7 +34,8 @@ public class Reservation_BD {
 	 * @param nouvResa - nouvelle reservation a rajouter à la liste
 	 */
 	public void ajouterResa(Reservation nouvResa) {
-		this.reservations.put((long) reservations.size(), nouvResa);
+		long id = Calendar.getInstance().getTime().getTime();
+		this.reservations.put(id, nouvResa);
 	}
 
 	/**

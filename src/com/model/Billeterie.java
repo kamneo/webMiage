@@ -83,18 +83,32 @@ public class Billeterie {
 		this.reduction = reduction;
 	}
 
-	private boolean myContains(Object[] tab, Object o) {
-		for (int i = 0; i < tab.length; i++)
-			if (tab[i].equals(o))
-				return true;
-		return false;
+	public void ajouterEvenement(Evenement ev) {
+		Integer i = 0;
+		while (evenements.containsKey(i))
+			i++;
+		evenements.put(i, ev);
 	}
-
+	
 	public void acheterPlace(Reservation reservation) throws Exception {
-		if(!reservation.validerReservation())
+		/*if(!reservation.validerReservation())
 			throw new Exception("Reservation non valide");
-		
+		*/
 		Reservation_BD rBD = Reservation_BD.getInstance();
 		rBD.ajouterResa(reservation);
+
+		// Changement à faux de la balise de disponibilité pour chaque place réservée
+		for(Billet b : reservation.getBillets().values()){
+			/*for(Orientation o :	getEvenement(reservation.getNomEv()).getStade().getOrientations())
+				if(o.getNom().equals(b.getOr().getNom()))
+						for(Escalier e : o.getEscalier().values())
+							if(e.getNomEsc().equals(b.getEsc().getNomEsc()))
+								for(Rang r : e.getRang().values())
+									if(r.getNumeroRang() == b.getRang().getNumeroRang())
+										for(Place p : r.getPlaces().values())
+											if(p.getNumero() == b.getPl().getNumero())
+												p.setEstLibre(false);*/
+			b.getPl().setEstLibre(false);
+		}
 	}
 }

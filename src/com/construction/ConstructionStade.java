@@ -24,13 +24,13 @@ public class ConstructionStade {
 		Orientation[]  o = new Orientation[5];
 		for (int i = 0; i < o.length; i++) {
 			if(i == 0)
-				o[i] = new Orientation("O", e.clone());
+				o[i] = new Orientation("Ouest", e.clone());
 			if(i == 1)
-				o[i] = new Orientation("N", e.clone());
+				o[i] = new Orientation("Nord", e.clone());
 			if(i == 2)
-				o[i] = new Orientation("S", e.clone());
+				o[i] = new Orientation("Sud", e.clone());
 			if(i == 3)
-				o[i] = new Orientation("E", e.clone());
+				o[i] = new Orientation("Est", e.clone());
 			if(i == 4)
 				o[i] = new Orientation("Fosse", e.clone());
 		}
