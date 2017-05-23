@@ -17,6 +17,13 @@ public class Reservation {
 		this.billets = billets;
 		this.setMailClient(mailClient);
 	}
+	
+	public Reservation(String nomEv, Billet billet, String mailClient){
+		this.setNomEv(nomEv);
+		this.billets = new HashMap<Integer, Billet>();
+		this.billets.put(this.billets.size(), billet);
+		this.setMailClient(mailClient);
+	}
 
 	public double getPrixResa(){
 		double prixResa = 0;

@@ -6,6 +6,7 @@ import com.model.Stade_Impl;
 
 import java.io.File;
 
+import javax.sql.rowset.serial.SerialArray;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -20,25 +21,30 @@ public class BuildXML {
 		ConstructionStade cs = new ConstructionStade();
 		Stade_Impl stade = cs.getStade();
 
+		serialize(stade, "stade.xml");
+	}
+	
+	public static void buildEvenement(){
+		Billeterie b = new Billeterie();
+		serialize(b, "billeterie.xml");
+	}
+	
+	public static void serialize(Object o, String path){
 		try {
 
-			 File file = new File("file.xml");
+			 File file = new File(path);
 			JAXBContext jaxbContext = JAXBContext.newInstance(Stade_Impl.class);
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
 			// output pretty printed
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-			jaxbMarshaller.marshal(stade, file);
-			jaxbMarshaller.marshal(stade, System.out);
+			jaxbMarshaller.marshal(o, file);
+			jaxbMarshaller.marshal(o, System.out);
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public static void buildEvenement(){
-		Billeterie b = new Billeterie();
 	}
 
 }

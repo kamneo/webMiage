@@ -1,31 +1,17 @@
 package com.model;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.model.Evenement.*;
 
 public class Billeterie {
-	private static Stade_Impl stade;
 	private static HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
 
 	public Billeterie() {
-		setStade(new Stade_Impl());
 		evenements = new HashMap<Integer, Evenement>();
-	}
-
-	public double acheterPlace(int idEvent, String idCat, int idReduction) {
-		double prixPlace = evenements.get((Integer) idEvent).getPrixCat(idCat) * reduction.get((Integer) idReduction);
-		return prixPlace;
-	}
-
-	public Stade_Impl getStade() {
-		return stade;
-	}
-
-	public void setStade(Stade_Impl stade) {
-		this.stade = stade;
 	}
 
 	public static ArrayList<Evenement> getAllEvenements() {
@@ -36,74 +22,72 @@ public class Billeterie {
 		return events;
 	}
 
-	public static HashMap<Integer, Evenement> getEvenements() {
+	public HashMap<Integer, Evenement> getEvenements() {
 		return evenements;
 	}
 
-	public static ArrayList<Place> getPlacesLibre(Evenement ev) {
-		ArrayList<Place> res = new ArrayList<Place>();
-
-		for (Orientation o : stade.getOrientations()) {
-			res.addAll(getPlacesLibre(ev, o.getNom()));
-		}
-		return res;
+	public ArrayList<Place> getPlacesLibre(Evenement ev) {
+		return ev.getPlacesLibre();
 	}
 
-	public static ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation) {
-		ArrayList<Place> res = new ArrayList<Place>();
-		int index = stade.getOrientations().indexOf(idOrientation);
-		for (Escalier e : stade.getOrientations().get(index).getEscalier().values()) {
-			if (myContains(ev.getOrientationAccessibles(), idOrientation)) {
-				res.addAll(getPlacesLibre(ev, idOrientation, e.getNomEsc()));
-			}
-		}
-		return res;
+	public ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation) {
+		return ev.getPlacesLibre(idOrientation);
 	}
 
-	public static ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation, String idEscalier) {
-		ArrayList<Place> res = new ArrayList<Place>();
-		int index = stade.getOrientations().indexOf(idOrientation);
-		for (Rang r : stade.getOrientations().get(index).getEscalier().get(idEscalier).getRang().values()) {
-			if (myContains(ev.getOrientationAccessibles(), idOrientation)) {
-				res.addAll(getPlacesLibre(ev, idOrientation, idEscalier, r.getNumeroRang()));
-			}
-		}
-		return res;
+	public ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation, String idEscalier) {
+		return ev.getPlacesLibre(idOrientation, idEscalier);
 	}
 
-	public static ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation, String idEscalier, int idRang) {
-		ArrayList<Place> res = new ArrayList<Place>();
-		int index = stade.getOrientations().indexOf(idOrientation);
-		for (Place p : stade.getOrientations().get(index).getEscalier().get(idEscalier).getRang().get(idRang)
-				.getPlaces().values()) {
-			if (myContains(ev.getOrientationAccessibles(), idOrientation) && p.isEstLibre()) {
-				res.add(p);
-			}
-		}
-		return res;
+	public ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation, String idEscalier, int idRang) {
+		return ev.getPlacesLibre(idOrientation, idEscalier, idRang);
 	}
 
-	private static boolean myContains(String[] op1, String op2) {
-		for (int i = 0; i < op1.length; i++)
-			if (op1[i].equals(op2))
-				return true;
-
-		return false;
+	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif) throws ParseException {
+		evenements.put(evenements.size(), new Sport(nomEv, date, tarif));
 	}
 
-	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif) {
-		// TODO Auto-generated method stub
-		
+	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif) throws ParseException {
+		evenements.put(evenements.size(), new Musique(nomEv, date, tarif));
 	}
 
 	public void supprimerEvenement(String nomEv) {
-		// TODO Auto-generated method stub
+		for(Evenement e : evenements.values())
+			if(e.getNomEv().equals(nomEv)){
+				evenements.values().remove(e);
+				return;
+			}
+	}
+	
+	public void acheterPlace(int idEvent, String idCat, int idReduction, Orientation or, Escalier esc, Rang r, Place p, String mailClient) throws Exception {
+		// Vérifiaction que la place est toujours libre et si elle est accessible
+		if(!p.isEstLibre() && myContains(evenements.get(idEvent).getCatAccessibles(), idCat) && myContains(evenements.get(idEvent).getOrientationAccessibles(), or.getNom()))
+			throw new Exception("la place n'est pas disponible !");
 		
+		double prixPlace = evenements.get((Integer) idEvent).getPrixCat(idCat) * getReduction().get((Integer) idReduction);
+		Billet b = new Billet(or, esc, r, p, prixPlace);
+		p.setEstLibre(false);
+		
+		Reservation resa = new Reservation(evenements.get((Integer) idEvent).getNomEv(), b, mailClient);
+		Reservation_BD rBD = Reservation_BD.getInstance();
+		rBD.ajouterResa(resa);
 	}
 
+	public void supprimerEvenement(int idEv) {
+		evenements.remove(idEv);
+	}
+
+	public HashMap<Integer, Double> getReduction() {
+		return reduction;
+	}
+
+	public void setReduction(HashMap<Integer, Double> reduction) {
+		this.reduction = reduction;
+	}
+
+	private boolean myContains(Object[] tab, Object o){
+		for(int i = 0; i<tab.length; i++)
+			if(tab[i].equals(o))
+				return true;
+		return false;
+	}
 }
