@@ -1,5 +1,5 @@
 package com.model;
-import javax.xml.bind.annotation.XmlAttribute;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Place")
@@ -55,5 +55,9 @@ public class Place {
 	 */
 	public void setEstLibre(boolean estLibre) {
 		this.estLibre = estLibre;
+	}
+	
+	public Object clone() {
+		return new Place(numero);
 	}
 }

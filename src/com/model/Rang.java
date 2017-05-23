@@ -64,7 +64,14 @@ public class Rang {
 		this.numeroRang = numeroRang;
 	}
 
-
+	public Object clone() {
+		@SuppressWarnings("unchecked")
+		HashMap<Integer, Place> pc = (HashMap<Integer, Place>) places.clone();
+		
+		Rang r = new Rang(numeroRang, (Place[]) pc.values().toArray());
+		
+		return r;
+	}
 	
 
 }

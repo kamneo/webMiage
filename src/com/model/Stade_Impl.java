@@ -1,16 +1,10 @@
 package com.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import com.model.Categorie;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "Stade")
 public class Stade_Impl {

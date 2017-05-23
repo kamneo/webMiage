@@ -61,4 +61,13 @@ public class Escalier {
 	public void setRang(HashMap<Integer, Rang> rangs) {
 		this.rang = rangs;
 	}
+	
+	public Object clone() {
+		@SuppressWarnings("unchecked")
+		HashMap<Integer, Rang> pc = (HashMap<Integer, Rang>)rang.clone();
+		
+		Escalier e = new Escalier(nomEsc, (Rang[]) pc.values().toArray());
+		
+		return e;
+	}
 }

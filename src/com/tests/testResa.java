@@ -38,6 +38,7 @@ public class testResa {
 		Place p = r.getPlaces().get(3);
 		
 		b.acheterPlace(new Reservation("e1", new Billet(ob1, esc, r, p, 23.8) , "aaa@aaa.com"));
+		
 		System.out.println(b.getEvenements().get(1).getPlacesLibre().size());
 	}
 }
