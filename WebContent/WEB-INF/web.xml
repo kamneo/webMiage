@@ -16,7 +16,8 @@
 		<servlet-name>EvenementServ</servlet-name>
 		<servlet-class>com.servlet.EvenementServ</servlet-class>
 	</servlet>
-		<servlet>
+	
+	<servlet>
 		<servlet-name>ClientServ</servlet-name>
 		<servlet-class>com.servlet.ClientServ</servlet-class>
 	</servlet>
