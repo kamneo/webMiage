@@ -18,8 +18,8 @@ public class Escalier {
 	
 	/**
 	 * Constructeur
-	 * @param nom 		= nom de l'escalier
-	 * @param escaliers = Liste des rangs qui compose l'escalier
+	 * @param nom - nom de l'escalier
+	 * @param escaliers - Liste des rangs qui compose l'escalier
 	 * Construit l'objet Escalier du nom du premier paramètre et crée des couples id/escalier
 	 */
 	public Escalier(String nomEsc, Rang[] rangs) {
@@ -31,7 +31,7 @@ public class Escalier {
 	}
 	
 	/**
-	 * @return nomEsc
+	 * @return nomEsc - nom de l'escalier
 	 * getNom renvoi le nom de l'escaliler
 	 */
 	public String getNomEsc() {
@@ -47,7 +47,7 @@ public class Escalier {
 	}
 	
 	/**
-	 * @return rang
+	 * @return rang- liste des rangs
 	 * getRang renvoi la liste des rang et de leur id
 	 */
 	public HashMap<Integer, Rang> getRang() {

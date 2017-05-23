@@ -31,15 +31,15 @@ public class Orientation {
 	}
 	
 	/**
-	 * @return nom
-	 * getNom renvoi le nom de l'orientation
+	 * @return nom - nom de l'orientation
+	 * 
 	 */
 	public String getNom() {
 		return nom;
 	}
 	
 	/**
-	 * @param nom - Le nom à affecter à l'orientation
+	 * @param nom - nouveau nom de l'orientation
 	 * setNom permet de changer le nom de l'orientation
 	 */
 	public void setNom(String nom) {
@@ -47,8 +47,7 @@ public class Orientation {
 	}
 	
 	/**
-	 * @return escalier
-	 * getEscalier renvoi la liste des Escaliers et de leur id
+	 * @return escalier - liste des escaliers
 	 */
 	public HashMap<String, Escalier> getEscalier() {
 		return escalier;

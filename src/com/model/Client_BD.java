@@ -3,28 +3,52 @@ package com.model;
 import java.util.HashMap;
 
 public class Client_BD {
+	/** 
+	 * Instance unique non préinitialisée 
+	 */
+	private static Client_BD INSTANCE = null;
 	private HashMap<String, Client> clients;
-	
-	public Client_BD(){
-		
+
+	/** 
+	 * Constructeur privé 
+	 */
+	private Client_BD() {
+	}
+
+	/**
+	 * @return clients - liste des clients
+	 */
+	public HashMap<String, Client> getClients() {
+		return clients;
+	}
+
+	/**
+	 * @param clients - nouvelle liste des clients 
+	 */
+	public void setClients(HashMap<String, Client> clients) {
+		this.clients = clients;
 	}
 	
 	/**
 	 * 
-	 * @param mail est l'adresse mail du client qui lui sert d'identifiant unique
-	 * @param client est un objet de la classe client qui contient toutes les informations relatives au client
+	 * @param nouvClient - client a ajouter a la liste
 	 */
-	public Client_BD(String mail, Client client){
-		this.clients = new HashMap<String, Client>();
-		this.clients.put(mail, client);
-		
-	}
-	
-	public void AjouterClient(Client nouvClient) throws Exception{
-		if(clients.containsKey(nouvClient.getMail())) // test d'unicité du client par rapport à son adresse mail
+	public void ajouterClients(Client nouvClient) throws Exception {
+		// test d'unicité du client par rapport à son adresse mail
+		if (clients.containsKey(nouvClient.getMail()))
 			throw new Exception("Adresse mail déjà utilisée !");
 		else
-			this.clients.put(nouvClient.getMail(), nouvClient); // creation d'un nouveau client
+			// creation d'un nouveau client
+			this.clients.put(nouvClient.getMail(), nouvClient);
 	}
 
+	/** 
+	 * Point d'accès pour l'instance unique du singleton 
+	 */
+	public static synchronized Client_BD getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new Client_BD();
+		}
+		return INSTANCE;
+	}
 }

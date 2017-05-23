@@ -18,8 +18,8 @@ public class Rang {
 	
 	/**
 	 * Constructeur
-	 * @param numeroRang 	= nomero du rang
-	 * @param p 			= Liste des places qui compose le rang
+	 * @param numeroRang - nomero du rang
+	 * @param p - Liste des places qui compose le rang
 	 * Construit l'objet Rang avec le numéro @param nom et crée HashMap avec des couples id/Place
 	 */
 	public Rang(int numeroRang, Place[] p){
@@ -33,7 +33,7 @@ public class Rang {
 	}
 
 	/**
-	 * @return places
+	 * @return places - liste des places 
 	 * getPlaces renvoi les couple 'id/place 
 	 */
 	public HashMap<Integer, Place> getPlaces() {
@@ -41,7 +41,7 @@ public class Rang {
 	}
 
 	/**
-	 * @param places
+	 * @param places - nouvelle liste de places
 	 * setPlaces permet d'attribuer de nouveau couple id/place
 	 */
 	public void setPlaces(HashMap<Integer, Place> places) {
@@ -49,7 +49,7 @@ public class Rang {
 	}
 
 	/**
-	 * @return numeroRang+
+	 * @return numeroRang - numero du rang
 	 * getNumeroRang retourne le numéro du rang
 	 */
 	public int getNumeroRang() {
@@ -57,7 +57,7 @@ public class Rang {
 	}
 
 	/**
-	 * @param numeroRang the numeroRang to set
+	 * @param numeroRang - numéro du rang
 	 * setNumeroRang permet de changer le numero du rang
 	 */
 	public void setNumeroRang(int numeroRang) {

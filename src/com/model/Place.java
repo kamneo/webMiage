@@ -16,8 +16,8 @@ public class Place {
 	
 	/**
 	 *
-	 * @param numero
-	 * @param estAchetee
+	 * @param numero - numero de la place
+	 * @param estAchetee - statue de la place
 	 * Construit l'objet Place avec le numéro passe en premier paramètre et non réservé
 	 */
 	public Place(int numero) {
@@ -26,7 +26,7 @@ public class Place {
 	}
 
 	/**
-	 * @return numero
+	 * @return numero - numero de la place
 	 * getNumero renvoi le nuéro de la place
 	 */
 	public int getNumero() {
@@ -34,7 +34,7 @@ public class Place {
 	}
 
 	/**
-	 * @param numero
+	 * @param numero - numero de la place
 	 * setNumero permet de changer le numéro de la place
 	 */
 	public void setNumero(int numero) {
@@ -42,7 +42,7 @@ public class Place {
 	}
 
 	/**
-	 * @return the estLibre
+	 * @return estLibre - statue de la place
 	 * isEstLibre retourn true si la place est libre et false dans le cas contraire
 	 */
 	public boolean isEstLibre() {
@@ -50,7 +50,7 @@ public class Place {
 	}
 
 	/**
-	 * @param estLibre the estLibre to set
+	 * @param estLibre - statue de la place
 	 * permet de changer la valeur de estLibre 
 	 */
 	public void setEstLibre(boolean estLibre) {
