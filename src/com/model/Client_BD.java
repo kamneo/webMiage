@@ -3,16 +3,14 @@ package com.model;
 import java.util.HashMap;
 
 public class Client_BD {
-	/** 
-	 * Instance unique non préinitialisée 
-	 */
-	private static Client_BD INSTANCE = null;
+	private static Client_BD instance = null;
 	private HashMap<String, Client> clients;
 
 	/** 
 	 * Constructeur privé 
 	 */
 	private Client_BD() {
+		clients = new HashMap<String, Client>();
 	}
 
 	/**
@@ -45,10 +43,10 @@ public class Client_BD {
 	/** 
 	 * Point d'accès pour l'instance unique du singleton 
 	 */
-	public static synchronized Client_BD getInstance() {
-		if (INSTANCE == null) {
-			INSTANCE = new Client_BD();
+	public static synchronized Client_BD getinstance() {
+		if (instance == null) {
+			instance = new Client_BD();
 		}
-		return INSTANCE;
+		return instance;
 	}
 }

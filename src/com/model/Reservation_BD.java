@@ -3,14 +3,12 @@ package com.model;
 import java.util.HashMap;
 
 public class Reservation_BD {
-	/** 
-	 * Instance unique 
-	 * 
-	 */
-	private static Reservation_BD INSTANCE = null;
+
+	private static Reservation_BD instance = null;
 	private HashMap<Long, Reservation> reservations;
 
 	private Reservation_BD() {
+		reservations = new HashMap<Long, Reservation>();
 	}
 
 	/**
@@ -42,9 +40,9 @@ public class Reservation_BD {
 	 * Point d'accès pour l'instance unique du singleton
 	 */
 	public static synchronized Reservation_BD getInstance() {
-		if (INSTANCE == null) {
-			INSTANCE = new Reservation_BD();
+		if (instance == null) {
+			instance = new Reservation_BD();
 		}
-		return INSTANCE;
+		return instance;
 	}
 }
