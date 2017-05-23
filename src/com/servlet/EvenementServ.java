@@ -20,9 +20,9 @@ import com.model.Evenement.Sport;
 @WebServlet("/EvenementServ")
 public class EvenementServ extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nom = request.getParameter("nomEvent");
-		String date = request.getParameter("DateEvent");
-		String type = request.getParameter("TypeEvent");
+		String nom = request.getParameter("nomEv");
+		String date = request.getParameter("date");
+		String type = request.getParameter("typeEv");
 		Evenement evnt = null;
 		HashMap<String, Double> tarif = new HashMap<String, Double>();
 		if (type == "Match") {
