@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<form method="get" action="ClientServ">
+		<form method="get" action="todo">
 			<fieldset>
 				<legend>Connexion</legend>
 				<label for="mail">Mail <span class="requis"></span></label>
@@ -17,6 +17,23 @@
 				<input type="password" id="mdp" name="mdp" value="" size="20" maxlength="20"/> <br/>
 				<br /> 
 				<input type="submit" value="Connexion" />
+			</fieldset>
+		</form>
+	</div>
+	<div>
+		<form method="get" action="ClientServ">
+			<fieldset>
+				<legend>Inscription</legend>
+				<label for="mail">Mail <span class="requis"></span></label>
+				<input type="text" id="mail" name="mail" value="" size="20"	maxlength="20"/> <br/>
+				<label for="mdp">Mot de passe </label>
+				<input type="password" id="mdp" name="mdp" value="" size="20" maxlength="20"/> <br/>
+				<label for="nom">Nom <span class="requis"></span></label>
+				<input type="text" id="nom" name="nom" value="" size="20"	maxlength="20"/> <br/>
+				<label for="prenom">Prénom <span class="requis"></span></label>
+				<input type="text" id="prenom" name="prenom" value="" size="20"	maxlength="20"/> <br/>
+				<br /> 
+				<input type="submit" value="Valider Inscription" />
 			</fieldset>
 		</form>
 	</div>
