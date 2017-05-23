@@ -17,8 +17,9 @@ public class Stade_Impl {
 	private String nom;
 	//private HashMap<String, Object> orientation;
 	private ArrayList<Orientation> orientation;
+	private static Stade_Impl instance = null;
 
-	public Stade_Impl() {
+	private Stade_Impl() {
 		this.nom = "defaut";
 		orientation = new ArrayList<Orientation>();
 	}
@@ -53,5 +54,16 @@ public class Stade_Impl {
 	@XmlElement(name="orientation")
 	public ArrayList<Orientation> getOrientations() {
 		return orientation; 
+	}
+	
+	/**
+	 * 
+	 * Point d'accès pour l'instance unique du singleton
+	 */
+	public static synchronized Stade_Impl getInstance() {
+		if (instance == null) {
+			instance = new Stade_Impl();
+		}
+		return instance;
 	}
 }

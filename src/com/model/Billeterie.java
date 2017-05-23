@@ -9,11 +9,24 @@ import com.model.Evenement.*;
 public class Billeterie {
 	private static HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
+	private static Billeterie instance = null;
 
-	public Billeterie() {
+	private Billeterie() {
 		evenements = new HashMap<Integer, Evenement>();
+		reduction = new HashMap<Integer, Double>();
 	}
 
+	/**
+	 * 
+	 * Point d'accès pour l'instance unique du singleton
+	 */
+	public static synchronized Billeterie getInstance() {
+		if (instance == null) {
+			instance = new Billeterie();
+		}
+		return instance;
+	}
+	
 	public static ArrayList<Evenement> getAllEvenements() {
 		ArrayList<Evenement> events = new ArrayList<Evenement>();
 		for (Evenement ev : evenements.values())
