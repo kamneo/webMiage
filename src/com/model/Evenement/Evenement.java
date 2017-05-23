@@ -33,7 +33,7 @@ public abstract class Evenement {
 	 *            et la liste des orientations accessibles en fonction de s
 	 */
 	public Evenement(HashMap<String, Double> tarif, Date date, String nomEv) {
-		setStade(new Stade_Impl());
+		setStade(Stade_Impl.getInstance());
 		this.tarif = tarif;
 		this.date = date;
 		this.nomEv = nomEv;

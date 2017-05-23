@@ -19,7 +19,7 @@ public class Stade_Impl {
 	private ArrayList<Orientation> orientation;
 	private static Stade_Impl instance = null;
 
-	private Stade_Impl() {
+	public Stade_Impl() {
 		this.nom = "defaut";
 		orientation = new ArrayList<Orientation>();
 	}

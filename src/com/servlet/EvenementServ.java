@@ -41,6 +41,6 @@ public class EvenementServ extends HttpServlet{
 			}
 		}
 		request.setAttribute("evnt", evnt);
-		this.getServletContext().getRequestDispatcher("/afficherEvnt.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/JSP/afficherEvnt.jsp").forward(request, response);
 	}
 }
