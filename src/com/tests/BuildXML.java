@@ -25,7 +25,7 @@ public class BuildXML {
 	}
 	
 	public static void buildEvenement(){
-		Billeterie b = new Billeterie();
+		Billeterie b = Billeterie.getInstance();
 		serialize(b, "billeterie.xml");
 	}
 	

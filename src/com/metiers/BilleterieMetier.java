@@ -32,7 +32,7 @@ public class BilleterieMetier {
 		billeterie.supprimerEvenement(nomEv);
 	}
 	
-	public static void validerReservation(Reservation[] res){
+	public static void validerReservation(Reservation[] res) throws Exception{
 		for(int i=0;i<res.length;i++){ 
 			billeterie.acheterPlace(res[i]);
 		}

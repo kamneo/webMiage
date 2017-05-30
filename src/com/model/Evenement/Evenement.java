@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import com.construction.ConstructionStade;
 import com.model.Escalier;
 import com.model.Orientation;
 import com.model.Place;
@@ -20,7 +21,9 @@ public abstract class Evenement {
 	protected static Stade_Impl stade;
 
 	public Evenement() {
-		stade = new Stade_Impl();
+		ConstructionStade cs = new ConstructionStade();
+		
+		stade = cs.getStade();
 		date = new Date();
 	}
 
@@ -38,7 +41,9 @@ public abstract class Evenement {
 	 *            et la liste des orientations accessibles en fonction de s
 	 */
 	public Evenement(HashMap<String, Double> tarif, Date date, String nomEv) {
-		setStade(Stade_Impl.getInstance());
+		ConstructionStade cs = new ConstructionStade();
+		
+		stade = cs.getStade();
 		this.tarif = tarif;
 		this.date = date;
 		this.nomEv = nomEv;
