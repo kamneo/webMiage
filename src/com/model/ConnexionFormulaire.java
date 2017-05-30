@@ -26,7 +26,7 @@ public final class ConnexionFormulaire {
 	public Client connecterClient(HttpServletRequest request) {
 		String email = getValeurChamp(request, mail);
 		String motDePasse = getValeurChamp(request, mdp);
-						
+					
 		Client client = new Client();
 
 		try {

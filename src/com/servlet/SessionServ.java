@@ -3,6 +3,7 @@ package com.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.model.Client;
 import com.model.ConnexionFormulaire;
 
+@WebServlet("/SessionServ")
 public class SessionServ extends HttpServlet {
 	public static final String ATT_USER = "client";
 	public static final String ATT_FORM = "form";

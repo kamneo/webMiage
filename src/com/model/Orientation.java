@@ -60,4 +60,13 @@ public class Orientation {
 	public void setEscalier(HashMap<String, Escalier> escalier) {
 		this.escalier = escalier;
 	}
+	
+	public Object clone() {
+		@SuppressWarnings("unchecked")
+		HashMap<Integer, Escalier> pc = (HashMap<Integer, Escalier>) escalier.clone();
+		
+		Orientation o = new Orientation(nom, (Escalier[]) pc.values().toArray());
+		
+		return o;
+	}
 }

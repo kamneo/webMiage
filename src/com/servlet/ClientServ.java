@@ -20,6 +20,7 @@ public class ClientServ extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		Client client = new Client(mail,mdp,nom,prenom);
+		/* to do : /!\ passer une rèquête pour savoir si admin*/
 		
 		request.setAttribute("client", client);
 		this.getServletContext().getRequestDispatcher("/afficherClient.jsp").forward(request, response);

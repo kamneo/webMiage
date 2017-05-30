@@ -35,8 +35,8 @@ public class EvenementMetier {
         System.out.println("getEvent");
        
         try {
-            if (Billeterie.getEvenements().containsKey(nomEv))
-                return Billeterie.getEvenements().get(nomEv);
+            if (Billeterie.getInstance().getEvenements().containsKey(nomEv))
+                return Billeterie.getInstance().getEvenements().get(nomEv);
             else
             	throw new Exception("Evenement introuvable");
 		} catch (Exception e) {
