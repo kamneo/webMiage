@@ -8,5 +8,7 @@
 </head>
 <body>
 	<jsp:include page="WEB-INF/navbar.jsp" />
+	
+	<h2>Evenement</h2>
 </body>
 </html>

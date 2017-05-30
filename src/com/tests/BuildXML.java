@@ -2,19 +2,36 @@ package com.tests;
 
 import com.construction.ConstructionStade;
 import com.model.Billeterie;
+import com.model.Client_BD;
+import com.model.Reservation_BD;
 import com.model.Stade_Impl;
+import com.model.Client;
 
 import java.io.File;
 
-import javax.sql.rowset.serial.SerialArray;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 public class BuildXML {
-	public static void main(String[] args) {
-		buildStade();
+	public static void main(String[] args) throws Exception {
+		//buildStade();
+		//buildEvenement();
+		
+		Client_BD cbd = Client_BD.getinstance();
+		Client c1 = new Client();
+		Client c2 = new Client("joffrey@gmail.com","azerty", "Ronald", "jeff");
+		cbd.ajouterClients(c1);
+		cbd.ajouterClients(c2);
 
+		buildClient_BD(cbd);
+		
+		serialize(c1, "toto.xml");
+		
+		
+		Reservation_BD rbd = Reservation_BD.getInstance();
+		
+		buildReservation_BD(rbd);
 	}
 	
 	public static void buildStade(){
@@ -27,6 +44,14 @@ public class BuildXML {
 	public static void buildEvenement(){
 		Billeterie b = Billeterie.getInstance();
 		serialize(b, "billeterie.xml");
+	}
+	
+	public static void buildClient_BD(Client_BD cbd){
+		serialize(cbd, "client_BD.xml");
+	}
+	
+	public static void buildReservation_BD(Reservation_BD rbd){
+		serialize(rbd, "reservation_BD.xml");
 	}
 	
 	public static void serialize(Object o, String path){

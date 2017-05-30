@@ -2,6 +2,10 @@ package com.model;
 
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="ClientBD")
 public class Client_BD {
 	private static Client_BD instance = null;
 	private HashMap<String, Client> clients;
@@ -16,6 +20,7 @@ public class Client_BD {
 	/**
 	 * @return clients - liste des clients
 	 */
+	@XmlElement(name="clients")
 	public HashMap<String, Client> getClients() {
 		return clients;
 	}

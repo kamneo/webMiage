@@ -17,7 +17,7 @@ import com.model.Evenement.Sport;
 /**
  * Servlet implementation class Evenement
  */
-@WebServlet("/EvenementServ")
+@WebServlet("/ajoutEvenement")
 public class EvenementServ extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nom = request.getParameter("nomEv");
