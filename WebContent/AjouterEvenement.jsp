@@ -6,11 +6,31 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Ajouter un Evenement</title>
-	<link href="CSS/css/freelancer.min.css" rel="stylesheet">
+	<!--  --><link href="CSS/css/freelancer.min.css" rel="stylesheet">
 	<link href="CSS/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.desaprouve{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<jsp:include page="WEB-INF/navbar.jsp" />
+	
+	<script type="text/javascript">
+		function onChangeRadio(){
+			document.getElementById('prixCategorie').classList.remove('desaprouve');
+			
+			if(document.getElementById('rencontreSportive').checked){
+				document.getElementById("nomEquipes").classList.remove('desaprouve');
+				document.getElementById('OR').classList.add('desaprouve');
+			}else{
+				document.getElementById("nomEquipes").classList.add('desaprouve');
+				document.getElementById("OR").classList.remove('desaprouve');
+			}
+		}
+	</script>
+	
 	<section id="addEvent">
 	<div class="container">
 		<div class="row">
@@ -21,13 +41,13 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
-				<form method="get" action="">
+				<form name="nouvelEvenemnt" method="post" action="#">
 					<div class="row control-group">
 						<label for="typeEvenement" >Type d'événement</label>
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<div class="radio" id="typeEvenement">
-							  	<label><input type="radio" name="typeEvenement" value="1">Rencontre sportive</label>
-							 	<label><input type="radio" name="typeEvenement" value="2">Concert</label>			
+							<div class="radio" id="typeEvenement"> 
+							  	<label><input type="radio" name="typeEvenement" id="rencontreSportive" class="form-control" value="1" onChange="onChangeRadio();">Rencontre sportive</label>
+							 	<label><input type="radio" name="typeEvenement" id="concert" class="form-control" onChange="onChangeRadio();" value="2">Concert</label>			
 						 	</div>
 					 	</div>
 					</div>
@@ -36,7 +56,6 @@
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<input type="text" class="form-control" placeholder="nom de l'évenement" id="nom" name="nom"
 								value="" size="20" maxlength="20" />
-							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
@@ -46,38 +65,40 @@
 								value="" style="width: 180px"/>
 							<input type="time" class="form-control" id="time" name="time"
 								value="" style="width: 180px"/>
-							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
-						<label for="date">Catégorie accéssibles</label> 
-						<div class="form-group col-xs-12 floating-label-form-group controls">
+						<label for="prixCategorie">Prix des billets pour chaques catégories</label> 
+						<div id="prixCategorie" class="form-group col-xs-12 floating-label-form-group controls desaprouve">
 							<c:forEach items="${categories}" var="categorie">
 								<div class="checkbox">
 								  <label>
-								    <input type="checkbox" name="${categorie }" value="" checked>
-								    <c:out value="${categorie }"/>
+								    <input type="text" id="${categorie }" name="${categorie }" class="form-control" placeholder="Prix catégorie ${categorie }" value="" checked>
 								  </label>
 								</div>
 							</c:forEach>
-							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
-						<label for="date">Orientations accéssibles</label> 
+						<label for="description">Description de l'évenement</label> 
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<c:forEach items="${orientations}" var="orientation">
-								<div class="checkbox">
-								  <label>
-								    <input type="checkbox" name="${orientation }" checked>
-								    <c:out value="${orientation }"/>
-								  </label>
-								</div>
-							</c:forEach>
-							<p class="help-block text-danger"></p>
+							<textarea id="description" name="description" class="form-control" placeholder="Description de l'evenement" rows="3"></textarea>
 						</div>
 					</div>
-				</div>
+					<div id="nomEquipes" class="desaprouve">
+						<div class="row control-group">
+							<label for="equipe1">Nom de l'équipe 1</label> 
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+								<input type="text" id="equipe1" name="equipe1" class="form-control" placeholder="nom de l'équipe 1" value=""/>
+							</div>
+						</div>
+						<div class="row control-group">
+							<label for="equipe2">Nom de l'équipe 2</label> 
+							<div class="form-group col-xs-12 floating-label-form-group controls">
+								<input type="text" id="equipe2" name="equipe2" class="form-control" placeholder="nom de l'équipe 2" value=""/>
+							</div>
+						</div>
+					</div>
 					<br>
 					<div id="success"></div>
 					<div class="row">
