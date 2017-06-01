@@ -1,23 +1,15 @@
 package com.construction;
 
 import com.model.*;
+import com.utils.Utilitaire;
 
 public class ConstructionStade {
 	private Stade_Impl stade;
 
 	public ConstructionStade() {
-		Orientation[] o = new Orientation[5];
+		Orientation[] o = new Orientation[Utilitaire.getAllOrientation().size()];
 		for (int i = 0; i < o.length; i++) {
-			if (i == 0)
-				o[i] = new Orientation("Ouest", creerEscaliers(30, 30, 20));
-			if (i == 1)
-				o[i] = new Orientation("Nord", creerEscaliers(30, 30, 20));
-			if (i == 2)
-				o[i] = new Orientation("Sud", creerEscaliers(30, 30, 20));
-			if (i == 3)
-				o[i] = new Orientation("Est", creerEscaliers(30, 30, 20));
-			if (i == 4)
-				o[i] = new Orientation("Fosse", creerEscaliers(30, 30, 20));
+				o[i] = new Orientation(Utilitaire.getAllOrientation().get(i), creerEscaliers(30, 30, 20));
 		}
 
 		stade = new Stade_Impl("le plus beau", o);

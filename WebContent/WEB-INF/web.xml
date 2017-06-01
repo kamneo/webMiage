@@ -17,12 +17,4 @@
     <servlet-name>ClientServ</servlet-name>
     <servlet-class>com.servlet.ClientServ</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>Connexion</servlet-name>
-    <servlet-class>com.servlet.Connexion</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Connexion</servlet-name>
-    <url-pattern>/Connexion</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -4,6 +4,7 @@ package com.servlet;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +13,14 @@ import javax.servlet.http.HttpSession;
 import com.model.Client;
 import com.model.ConnexionForm;
 
+@WebServlet("/connexion2")
 public class Connexion extends HttpServlet {
-    public static final String ATT_USER         = "Client";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1382605201418959028L;
+	
+	public static final String ATT_USER         = "Client";
     public static final String ATT_FORM         = "form";
     public static final String ATT_SESSION_USER = "sessionClient";
     public static final String VUE              = "/connexion.jsp";
@@ -24,7 +31,7 @@ public class Connexion extends HttpServlet {
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        /* Préparation de l'objet formulaire */
+        /* Pr�paration de l'objet formulaire */
         ConnexionForm form = new ConnexionForm();
 
         /* Traitement de la requête et récupération du bean en résultant */

@@ -4,16 +4,58 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.construction.ConstructionStade;
 import com.model.Evenement.*;
+import com.utils.Utilitaire;
 
 public class Billeterie {
 	private static HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
+	//private ArrayList<Categorie> categoriesDisponibles;
 	private static Billeterie instance = null;
 
 	private Billeterie() {
 		evenements = new HashMap<Integer, Evenement>();
 		reduction = new HashMap<Integer, Double>();
+		
+		/*ConstructionStade cs = new ConstructionStade();
+		Categorie c1 = new Categorie();
+		c1.setNom("categorie 1");
+		HashMap<String, Escalier> h1 = new HashMap<>();
+		Categorie c2 = new Categorie();
+		c2.setNom("categorie 2");
+		HashMap<String, Escalier> h2 = new HashMap<>();
+		Categorie c3 = new Categorie();
+		c3.setNom("categorie 3");
+		HashMap<String, Escalier> h3 = new HashMap<>();
+		Categorie c4 = new Categorie();
+		
+		long compteur = 0;
+		
+		for(Orientation o : cs.getStade().getOrientations()){
+			if(o.getNom().equals(Utilitaire.CATEGORIE_FOSSE)){
+				c4.setNom("OR");
+				c4.setEscalier(o.getEscalier());
+			}else{
+				for(Escalier e: o.getEscalier().values()){
+					if(compteur < 1/3*o.getEscalier().values().size())
+						h1.put(e.getNomEsc(), e);
+					else if(compteur < 1/3*o.getEscalier().values().size())
+						h2.put(e.getNomEsc(), e);
+					else
+						h3.put(e.getNomEsc(), e);
+				}
+			}
+		}
+
+		c1.setEscalier(h1);
+		c2.setEscalier(h2);
+		c3.setEscalier(h3);
+
+		categoriesDisponibles.add(c1);
+		categoriesDisponibles.add(c2);
+		categoriesDisponibles.add(c3);
+		categoriesDisponibles.add(c4);*/
 	}
 
 	/**
