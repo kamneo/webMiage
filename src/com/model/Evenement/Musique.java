@@ -18,11 +18,12 @@ public class Musique extends Evenement{
 		this.orientationAccessibles[1] = "Sud";
 		this.orientationAccessibles[2] = "Est";
 		this.typeEv=1;
+		this.description = "";
 	}
 	
-	public Musique(String nomEv,  String date, HashMap<String, Double> tarif) throws ParseException{
+	public Musique(String nomEv,  String date, HashMap<String, Double> tarif, String description) throws ParseException{
 
-		super(tarif, formatter.parse(date), nomEv);
+		super(tarif, formatter.parse(date), nomEv, description);
 		this.catAccessibles = new String[4];
 		this.catAccessibles[0] = "Or";
 		this.catAccessibles[1] = "Argent";

@@ -6,11 +6,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Ajouter un Evenement</title>
-	<!--  --><link href="CSS/css/freelancer.min.css" rel="stylesheet">
-	<link href="CSS/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="CSS/css/freelancer.min.css" rel="stylesheet">
+	<link href="CSS/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 	<style>
 		.desaprouve{
 			display: none;
+		}
+		
+		.erreur {
+		    color: #900;
 		}
 	</style>
 </head>
@@ -49,6 +53,7 @@
 							  	<label><input type="radio" name="typeEvenement" id="rencontreSportive" class="form-control" value="1" onChange="onChangeRadio();">Rencontre sportive</label>
 							 	<label><input type="radio" name="typeEvenement" id="concert" class="form-control" onChange="onChangeRadio();" value="2">Concert</label>			
 						 	</div>
+					 		<span class="erreur">${erreurs['type']}</span>
 					 	</div>
 					</div>
 					<div class="row control-group">
