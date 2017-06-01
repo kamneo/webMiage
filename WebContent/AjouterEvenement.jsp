@@ -17,10 +17,6 @@
 		    color: #900;
 		}
 	</style>
-</head>
-<body>
-	<jsp:include page="WEB-INF/navbar.jsp" />
-	
 	<script type="text/javascript">
 		function onChangeRadio(){
 			document.getElementById('prixCategorie').classList.remove('desaprouve');
@@ -33,8 +29,23 @@
 				document.getElementById("OR").classList.remove('desaprouve');
 			}
 		}
+		
+		function load(){
+			if(${param.typeEvenement } == '1'){
+				document.getElementById('rencontreSportive').checked = true;
+			}
+			
+			if(${param.typeEvenement } == '2'){
+				document.getElementById('concert').checked = true;
+			}
+			
+			onChangeRadio();
+		}
 	</script>
-	
+</head>
+<body onload="load()">
+	<jsp:include page="WEB-INF/navbar.jsp" />
+
 	<section id="addEvent">
 	<div class="container">
 		<div class="row">
@@ -60,16 +71,19 @@
 						<label for="nom">Nom de l'événement</label> 
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<input type="text" class="form-control" placeholder="nom de l'évenement" id="nom" name="nom"
-								value="" size="20" maxlength="20" />
+								value="${param.nom }" size="20" maxlength="20" />
+					 			<span class="erreur">${erreurs['nom']}</span>
 						</div>
 					</div>
 					<div class="row control-group">
 						<label for="date">Date de l'événement</label> 
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<input type="date" class="form-control" id="date" name="date"
-								value="" style="width: 180px"/>
+								value="${param.date }" style="width: 180px"/>
+				 			<span class="erreur">${erreurs['date']}</span>
 							<input type="time" class="form-control" id="time" name="time"
-								value="" style="width: 180px"/>
+								value="${param.time }" style="width: 180px"/>
+				 			<span class="erreur">${erreurs['time']}</span>
 						</div>
 					</div>
 					<div class="row control-group">
@@ -77,9 +91,16 @@
 						<div id="prixCategorie" class="form-group col-xs-12 floating-label-form-group controls desaprouve">
 							<c:forEach items="${categories}" var="categorie">
 								<div class="checkbox">
-								  <label>
-								    <input type="text" id="${categorie }" name="${categorie }" class="form-control" placeholder="Prix catégorie ${categorie }" value="" checked>
-								  </label>
+								  	<div id="${categorie }">
+						  				<c:set value="" var="value"/>	
+									  	<c:forEach items="${param}" var="p">									  			
+										  		<c:if test="${p.key == categorie }">
+										  			<c:set value="${p.value }" var="value"/>
+											    </c:if>
+										</c:forEach>
+								    	<input type="text" name="${categorie }" class="form-control" placeholder="Prix catégorie ${categorie }" value="${value }">
+						 				<span class="erreur">${erreurs[categorie]}</span>								  	
+								  	</div>
 								</div>
 							</c:forEach>
 						</div>
@@ -87,20 +108,23 @@
 					<div class="row control-group">
 						<label for="description">Description de l'évenement</label> 
 						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<textarea id="description" name="description" class="form-control" placeholder="Description de l'evenement" rows="3"></textarea>
+							<textarea id="description" name="description" class="form-control" placeholder="Description de l'evenement" rows="3">${param.description }</textarea>
+				 			<span class="erreur">${erreurs['description']}</span>
 						</div>
 					</div>
 					<div id="nomEquipes" class="desaprouve">
 						<div class="row control-group">
 							<label for="equipe1">Nom de l'équipe 1</label> 
 							<div class="form-group col-xs-12 floating-label-form-group controls">
-								<input type="text" id="equipe1" name="equipe1" class="form-control" placeholder="nom de l'équipe 1" value=""/>
+								<input type="text" id="equipe1" name="equipe1" class="form-control" placeholder="nom de l'équipe 1" value="${param.equipe1 }"/>
+					 			<span class="erreur">${erreurs['equipe1']}</span>
 							</div>
 						</div>
 						<div class="row control-group">
 							<label for="equipe2">Nom de l'équipe 2</label> 
 							<div class="form-group col-xs-12 floating-label-form-group controls">
-								<input type="text" id="equipe2" name="equipe2" class="form-control" placeholder="nom de l'équipe 2" value=""/>
+								<input type="text" id="equipe2" name="equipe2" class="form-control" placeholder="nom de l'équipe 2" value="${param.equipe2 }"/>
+					 			<span class="erreur">${erreurs['equipe2']}</span>
 							</div>
 						</div>
 					</div>
