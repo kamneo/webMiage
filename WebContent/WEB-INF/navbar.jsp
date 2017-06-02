@@ -15,7 +15,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="hidden"><a href="#page-top"></a></li>
 				<li class="page-scroll"><a href="ajouterEvenement">Ajouter un événement</a></li>
-				<li class="page-scroll"><a href="#about">Rechercher un événement</a></li>
+				<li class="page-scroll"><a href="evenements">Rechercher un événement</a></li>
 				<li class="page-scroll"><a href="connexion">Connexion</a></li>
 			</ul>
 		</div>

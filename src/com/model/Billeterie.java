@@ -32,7 +32,7 @@ public class Billeterie {
 		return instance;
 	}
 	
-	public static ArrayList<Evenement> getAllEvenements() {
+	public ArrayList<Evenement> getAllEvenements() {
 		ArrayList<Evenement> events = new ArrayList<Evenement>();
 		for (Evenement ev : evenements.values())
 			events.add(ev);

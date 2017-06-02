@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class Sport extends Evenement {
-	static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	private String equipe1 = "";
 	private String equipe2 = "";
 	

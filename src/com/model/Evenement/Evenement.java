@@ -1,5 +1,6 @@
 package com.model.Evenement;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import com.model.Rang;
 import com.model.Stade_Impl;
 
 public abstract class Evenement {
+	protected static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	protected HashMap<String, Double> tarif;
 	protected Date date;
 	protected String nomEv;

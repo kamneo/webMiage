@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class Musique extends Evenement{
-	static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	
 	public Musique(){
 		super();

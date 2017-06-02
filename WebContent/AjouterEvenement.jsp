@@ -19,26 +19,33 @@
 	</style>
 	<script type="text/javascript">
 		function onChangeRadio(){
-			document.getElementById('prixCategorie').classList.remove('desaprouve');
+			var isChecked = false;
 			
 			if(document.getElementById('rencontreSportive').checked){
+				isChecked = true;
 				document.getElementById("nomEquipes").classList.remove('desaprouve');
 				document.getElementById('OR').classList.add('desaprouve');
-			}else{
+			}else if(document.getElementById('concert').checked){
+				isChecked = true;
 				document.getElementById("nomEquipes").classList.add('desaprouve');
 				document.getElementById("OR").classList.remove('desaprouve');
 			}
+			if(isChecked)
+				document.getElementById('prixCategorie').classList.remove('desaprouve');
 		}
-		
+	</script>
+	<script>		
 		function load(){
-			if(${param.typeEvenement } == '1'){
+			var typeEvent = '${param.typeEvenement }';
+			if(typeEvent == '1'){
 				document.getElementById('rencontreSportive').checked = true;
 			}
 			
-			if(${param.typeEvenement } == '2'){
+			if(typeEvent == '2'){
 				document.getElementById('concert').checked = true;
 			}
-			
+
+			document.getElementById('prixCategorie').classList.add('desaprouve');
 			onChangeRadio();
 		}
 	</script>
