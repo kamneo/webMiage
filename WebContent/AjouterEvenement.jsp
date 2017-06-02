@@ -6,8 +6,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Ajouter un Evenement</title>
-	<!-- <link href="CSS/css/freelancer.min.css" rel="stylesheet">
-	<link href="CSS/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+	<!--  --><link href="CSS/css/freelancer.min.css" rel="stylesheet">
+	<link href="CSS/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 		.desaprouve{
 			display: none;

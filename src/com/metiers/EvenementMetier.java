@@ -22,7 +22,7 @@ public class EvenementMetier {
 	 */
     public ArrayList<Evenement> getAllEvenement() {
         System.out.println("getEvenement");
-        return Billeterie.getAllEvenements();
+        return Billeterie.getInstance().getAllEvenements();
     }
 	
     /**
@@ -44,14 +44,6 @@ public class EvenementMetier {
 			e.printStackTrace();
 		}
 		return null;
-    }
-    
-    public void creerEvenement(int typeEv, String nomEv,  String date, HashMap<String, Double> tarif) throws ParseException{
-    	Evenement e;
-    	if(typeEv == 0)
-    		BilleterieMetier.creerSport(nomEv, date, tarif);
-    	else
-    		BilleterieMetier.creerMusique(nomEv, date, tarif);
     }
 
 }

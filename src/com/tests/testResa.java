@@ -18,8 +18,8 @@ public class testResa {
 	public static void main(String[] args) throws Exception {		
 		Billeterie b = Billeterie.getInstance();
 		
-		Evenement e1 = new Sport("e1", "01/01/2005", new HashMap<String, Double>());
-		Evenement e2 = new Musique("e2", "01/01/2005", new HashMap<String, Double>());
+		Evenement e1 = new Sport("e1", "01/01/2005", new HashMap<String, Double>(), "eux", "nous", "description");
+		Evenement e2 = new Musique("e2", "01/01/2005", new HashMap<String, Double>(), "description");
 		
 		b.ajouterEvenement(e1);
 		b.ajouterEvenement(e2);
