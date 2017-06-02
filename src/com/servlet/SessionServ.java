@@ -37,17 +37,14 @@ public class SessionServ extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		Client client = new Client(mail, mdp, nom, prenom);
-		
-		System.out.println(client.getMail());
-		System.out.println(client.getMdp());
-		
+	
 
 		/* Récupération de la session depuis la requête */
 		HttpSession session = request.getSession();
 
 		Client_BD clientBDD = Client_BD.getinstance();
 		HashMap<String, Client> listeClients = clientBDD.getClients();
-		String message = "Connaxion réussite";
+		String message = "Connexion réussite";
 		/**
 		 * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
 		 * Utilisateur à la session, sinon suppression du bean de la session.
@@ -57,10 +54,10 @@ public class SessionServ extends HttpServlet {
 				if (client.getMdp().equals(listeClients.get(client.getMail()).getMdp())) {
 					session.setAttribute(ATT_SESSION_USER, client);
 				} else {
-					message = "mot de passsse incorect";
+					message = "Erreur - Mot de passe incorrect. <br> <a href=\"FormulaireConnexInscrip.jsp\">Cliquez ici</a> pour accéder au formulaire de connection ou pour vous créer un compte";
 				}
 			} else {
-				message = "Mail inconnu";
+				message = "Erreur - Mail inconnu. <br> <a href=\"FormulaireConnexInscrip.jsp\">Cliquez ici</a> pour accéder au formulaire de connection ou pour vous créer un compte";
 			}
 
 		} else {

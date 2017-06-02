@@ -13,9 +13,7 @@
 	<jsp:include page="WEB-INF/navbar.jsp" />
 	<c:out value="Vous êtes inscri avece le mail suivant : " />
 	<c:set scope="session" var="tonBean" value="${client}" />
-	<c:out value="${client.mail}" />
-	<c:out value="${message}" />
-	
-	
+	<c:out value="${client.mail}" /> </br>
+	${message}
 </body>
 </html>

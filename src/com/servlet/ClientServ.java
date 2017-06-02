@@ -44,8 +44,7 @@ public class ClientServ extends HttpServlet {
 			listeClient.ajouterClients(client);
 			message = "il y a " + Client_BD.getClients().size() + "Client";
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			message = "mail déjà utilisé, veuillez en saisir un nouveau. Retour au site : ";
+			message = "Erreur - Adresse mail déjà utilisée. <br> <a href=\"FormulaireConnexInscrip.jsp\">Cliquez ici</a> pour accéder au formulaire de connection ou pour vous créer un compte";
 		}
 
 		request.setAttribute("client", client);
