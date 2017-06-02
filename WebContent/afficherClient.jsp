@@ -15,7 +15,5 @@
 	<c:set scope="session" var="tonBean" value="${client}" />
 	<c:out value="${client.mail}" />
 	<c:out value="${message}" />
-	
-	
 </body>
 </html>
