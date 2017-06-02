@@ -17,7 +17,7 @@ public class SessionServ extends HttpServlet {
 	public static final String ATT_USER = "client";
 	public static final String ATT_FORM = "form";
 	public static final String ATT_SESSION_USER = "sessionUtilisateur";
-	public static final String VUE = "/WebContent/FormulaireConnexInscrip.jsp";
+	public static final String VUE = "/FormulaireConnexInscrip.jsp";
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/* Affichage de la page de connexion */
