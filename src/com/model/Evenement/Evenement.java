@@ -1,5 +1,6 @@
 package com.model.Evenement;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import com.model.Rang;
 import com.model.Stade_Impl;
 
 public abstract class Evenement {
+	protected static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	protected HashMap<String, Double> tarif;
 	protected Date date;
 	protected String nomEv;
@@ -19,6 +21,7 @@ public abstract class Evenement {
 	protected String[] orientationAccessibles;
 	protected int typeEv;
 	protected static Stade_Impl stade;
+	protected String description;
 
 	public Evenement() {
 		ConstructionStade cs = new ConstructionStade();
@@ -40,13 +43,14 @@ public abstract class Evenement {
 	 *            tarif, une date, un nom, la liste des catégories accessibles
 	 *            et la liste des orientations accessibles en fonction de s
 	 */
-	public Evenement(HashMap<String, Double> tarif, Date date, String nomEv) {
+	public Evenement(HashMap<String, Double> tarif, Date date, String nomEv, String description) {
 		ConstructionStade cs = new ConstructionStade();
 		
 		stade = cs.getStade();
 		this.tarif = tarif;
 		this.date = date;
 		this.nomEv = nomEv;
+		this.description = description;
 	}
 
 	/**

@@ -1,10 +1,10 @@
 package com.model;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Categorie {
 	private String nomCat;
-	private HashMap<String,Escalier> escalier;
+	private ArrayList<String> escalier;
 	
 	/**
 	 * constructeur par défault
@@ -25,10 +25,10 @@ public class Categorie {
 	public void setNom(String nomCat) {
 		this.nomCat = nomCat;
 	}
-	public HashMap<String, Escalier> getEscalier() {
+	public ArrayList<String> getEscalier() {
 		return escalier;
 	}
-	public void setEscalier(HashMap<String, Escalier> escalier) {
+	public void setEscalier(ArrayList<String> escalier) {
 		this.escalier = escalier;
 	}
 }

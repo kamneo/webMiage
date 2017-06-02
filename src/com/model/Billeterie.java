@@ -4,16 +4,21 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.construction.ConstructionStade;
 import com.model.Evenement.*;
+import com.utils.Utilitaire;
 
 public class Billeterie {
 	private static HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
+	private ArrayList<Categorie> categoriesDisponibles;
 	private static Billeterie instance = null;
 
 	private Billeterie() {
 		evenements = new HashMap<Integer, Evenement>();
 		reduction = new HashMap<Integer, Double>();
+		
+		setCategoriesDisponibles(ConstructionStade.getCategorie());
 	}
 
 	/**
@@ -27,7 +32,7 @@ public class Billeterie {
 		return instance;
 	}
 	
-	public static ArrayList<Evenement> getAllEvenements() {
+	public ArrayList<Evenement> getAllEvenements() {
 		ArrayList<Evenement> events = new ArrayList<Evenement>();
 		for (Evenement ev : evenements.values())
 			events.add(ev);
@@ -55,12 +60,20 @@ public class Billeterie {
 		return ev.getPlacesLibre(idOrientation, idEscalier, idRang);
 	}
 
-	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif) throws ParseException {
-		evenements.put(evenements.size(), new Sport(nomEv, date, tarif));
+	public ArrayList<Categorie> getCategoriesDisponibles() {
+		return categoriesDisponibles;
 	}
 
-	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif) throws ParseException {
-		evenements.put(evenements.size(), new Musique(nomEv, date, tarif));
+	private void setCategoriesDisponibles(ArrayList<Categorie> categoriesDisponibles) {
+		this.categoriesDisponibles = categoriesDisponibles;
+	}
+
+	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif, String equipe1, String equipe2, String description) throws ParseException {
+		evenements.put(evenements.size(), new Sport(nomEv, date, tarif, equipe1, equipe2, description));
+	}
+
+	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif, String description) throws ParseException {
+		evenements.put(evenements.size(), new Musique(nomEv, date, tarif, description));
 	}
 
 	public void supprimerEvenement(String nomEv) {
