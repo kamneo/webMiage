@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Client_BD {
 	private static Client_BD instance = null;
-	private HashMap<String, Client> clients;
+	private static HashMap<String, Client> clients;
 
 	/** 
 	 * Constructeur privé 
@@ -16,7 +16,7 @@ public class Client_BD {
 	/**
 	 * @return clients - liste des clients
 	 */
-	public HashMap<String, Client> getClients() {
+	public static HashMap<String, Client> getClients() {
 		return clients;
 	}
 
