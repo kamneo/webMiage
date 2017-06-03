@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Ajouter un Evenement</title>
-	<!--  --><link href="CSS/css/freelancer.min.css" rel="stylesheet">
+	<link href="CSS/css/freelancer.min.css" rel="stylesheet">
 	<link href="CSS/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<style>
 		.desaprouve{
@@ -55,21 +55,21 @@
 
 	<section id="addEvent">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 text-center">
+		<div>
+			<div>
 				<h2>Création d'un événement</h2>
 				<br />
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
+		<div>
+			<div class="col-lg-12">
 				<form name="nouvelEvenemnt" method="post" action="#">
 					<div class="row control-group">
 						<label for="typeEvenement" >Type d'événement</label>
-						<div class="form-group col-xs-12 floating-label-form-group controls">
+						<div class="form-group col-xs-12">
 							<div class="radio" id="typeEvenement"> 
-							  	<label><input type="radio" name="typeEvenement" id="rencontreSportive" class="form-control" value="1" onChange="onChangeRadio();">Rencontre sportive</label>
-							 	<label><input type="radio" name="typeEvenement" id="concert" class="form-control" onChange="onChangeRadio();" value="2">Concert</label>			
+							  	<label class="radio-inline"><input type="radio" name="typeEvenement" id="rencontreSportive" value="1" onChange="onChangeRadio();">Rencontre sportive</label>
+							 	<label class="radio-inline"><input type="radio" name="typeEvenement" id="concert" onChange="onChangeRadio();" value="2">Concert</label>			
 						 	</div>
 					 		<span class="erreur">${erreurs['type']}</span>
 					 	</div>
@@ -82,7 +82,7 @@
 					 			<span class="erreur">${erreurs['nom']}</span>
 						</div>
 					</div>
-					<div class="row control-group">
+					<div class="row form-inline control-group">
 						<label for="date">Date de l'événement</label> 
 						<div class="form-group col-xs-12 floating-label-form-group controls">
 							<input type="date" class="form-control" id="date" name="date"
