@@ -66,7 +66,7 @@
 				<form name="nouvelEvenemnt" method="post" action="#">
 					<div class="row control-group">
 						<label for="typeEvenement" >Type d'événement</label>
-						<div class="form-group col-xs-12">
+						<div class="form-group col-xs-12" style="border-bottom: 1px solid #eee; border-left: 1px solid #eee;">
 							<div class="radio" id="typeEvenement"> 
 							  	<label class="radio-inline"><input type="radio" name="typeEvenement" id="rencontreSportive" value="1" onChange="onChangeRadio();">Rencontre sportive</label>
 							 	<label class="radio-inline"><input type="radio" name="typeEvenement" id="concert" onChange="onChangeRadio();" value="2">Concert</label>			
