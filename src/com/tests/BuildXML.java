@@ -5,9 +5,13 @@ import com.model.Billeterie;
 import com.model.Client_BD;
 import com.model.Reservation_BD;
 import com.model.Stade_Impl;
+import com.model.Evenement.Evenement;
+import com.model.Evenement.Sport;
 import com.model.Client;
 
 import java.io.File;
+import java.text.ParseException;
+import java.util.HashMap;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -16,9 +20,9 @@ import javax.xml.bind.Marshaller;
 public class BuildXML {
 	public static void main(String[] args) throws Exception {
 		//buildStade();
-		//buildEvenement();
+		buildEvenement();
 		
-		Client_BD cbd = Client_BD.getinstance();
+		/*Client_BD cbd = Client_BD.getinstance();
 		Client c1 = new Client();
 		Client c2 = new Client("joffrey@gmail.com","azerty", "Ronald", "jeff");
 		cbd.ajouterClients(c1);
@@ -31,7 +35,7 @@ public class BuildXML {
 		
 		Reservation_BD rbd = Reservation_BD.getInstance();
 		
-		buildReservation_BD(rbd);
+		buildReservation_BD(rbd);*/
 	}
 	
 	public static void buildStade(){
@@ -44,6 +48,17 @@ public class BuildXML {
 	public static void buildEvenement(){
 		Billeterie b = Billeterie.getInstance();
 		serialize(b, "billeterie.xml");
+		
+		Evenement ev;
+		try {
+			ev = new Sport("test", "03/03/2017 00:00", new HashMap<String, Double>(), "eux", "nous", "description");
+			b.ajouterEvenement(ev);
+			serialize(b, "test_billetterie.xml");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static void buildClient_BD(Client_BD cbd){
