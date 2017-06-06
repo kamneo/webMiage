@@ -5,6 +5,7 @@ import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 import com.model.Stade_Impl;
 
@@ -13,35 +14,24 @@ public class XMLMarshall {
 		try {
 
 			 File file = new File(path);
-			JAXBContext jaxbContext = JAXBContext.newInstance(Stade_Impl.class);
+			JAXBContext jaxbContext = JAXBContext.newInstance(o.getClass());
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
 			// output pretty printed
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
 			jaxbMarshaller.marshal(o, file);
-			jaxbMarshaller.marshal(o, System.out);
 
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void XMLTo(Object o, String path){
-		try {
+	public static Object XMLTo(Class<?> o, String path) throws JAXBException{
+		File file = new File(path);
+	    JAXBContext jaxbContext = JAXBContext.newInstance(o);
 
-			 File file = new File(path);
-			JAXBContext jaxbContext = JAXBContext.newInstance(Stade_Impl.class);
-			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-			// output pretty printed
-			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-			jaxbMarshaller.marshal(o, file);
-			jaxbMarshaller.marshal(o, System.out);
-
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		}
+	    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+	    return jaxbUnmarshaller.unmarshal(file);
 	}
 }
