@@ -13,6 +13,11 @@
 	<jsp:include page="WEB-INF/navbar.jsp" />
 	<section id="afficherEvenement">
 	<div class="container">
+		<c:forEach items="${evenementSupprime }" var="ev">
+			<div class="alert alert-info">
+  				<strong>Info!</strong> l'événement <strong><c:out value="${ev }"></c:out></strong> a été supprimé car il est dépassé.
+			</div>
+		</c:forEach>
 		<div>
 			<h2>Evenements à venir</h2>
 			<br />
@@ -21,14 +26,14 @@
 			Aucun evenement n'est reseigné.
 		</c:if>
 		<c:forEach items="${evenements}" var="evenement">
-			<div class="date-container">
-				<div class="date-pht load" style="height: 146px; border: 2px solid #18BC9C;">
+			<div class="date-container"  style="height: 200px; border: 2px solid #18BC9C; padding-left: 25px;padding-top : 12px;">
+				<div class="date-pht load" >
 					<img src="images/soccer.png"
 						class="imgHeight" alt=""
 						style="transform: translate(0px, 0px) scale(1, 1);">
 					<div class="ic-circle"></div>
 				</div>
-				<div class="date-txt" style="min-height: 136px;">
+				<div class="date-txt" style="min-height: 75px;">
 					<div class="genre light cap">
 						<c:choose>
 							<c:when test="${evenement.value.getClass().getName().equals('com.model.Evenement.Sport') }">
@@ -45,8 +50,11 @@
 					<div class="date cap">
 						<b>${evenement.value.getDate() }</b>
 					</div>
+					<div class="descrition cap">
+						<b>${evenement.value.getDescription() }</b>
+					</div>
 				</div>
-				<div class="container-billetterie">
+				<div class="container-billetterie text-center"">
 					<div style="margin-right: 5px;">
 						<button type="button" class="btn btn-primary">Reserver en ligne</button>
 					</div>
