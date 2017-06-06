@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Rang")
@@ -13,7 +14,7 @@ public class Rang {
 	 * constructeur par défault
 	 */
 	public Rang(){
-		
+		places=new HashMap<Integer, Place>();
 	}
 	
 	/**
@@ -52,6 +53,7 @@ public class Rang {
 	 * @return numeroRang - numero du rang
 	 * getNumeroRang retourne le numéro du rang
 	 */
+	@XmlAttribute
 	public int getNumeroRang() {
 		return numeroRang;
 	}

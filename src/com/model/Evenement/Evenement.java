@@ -5,13 +5,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+
 import com.construction.ConstructionStade;
 import com.model.Escalier;
 import com.model.Orientation;
 import com.model.Place;
 import com.model.Rang;
 import com.model.Stade_Impl;
+import com.sun.xml.internal.txw2.annotation.XmlAttribute;
+import com.sun.xml.internal.txw2.annotation.XmlElement;
 
+@XmlSeeAlso({
+    Sport.class,
+    Musique.class
+})
+@XmlRootElement
 public abstract class Evenement {
 	protected static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	protected HashMap<String, Double> tarif;
@@ -98,6 +108,7 @@ public abstract class Evenement {
 	/**
 	 * @return the typeEv
 	 */
+	@XmlAttribute
 	public int getTypeEv() {
 		return typeEv;
 	}
@@ -112,7 +123,8 @@ public abstract class Evenement {
 	public double getPrixCat(String idCat) {
 		return tarif.get(idCat);
 	}
-
+	
+	@XmlElement
 	public String getNomEv() {
 		return nomEv;
 	}
@@ -121,6 +133,7 @@ public abstract class Evenement {
 		this.nomEv = nomEv;
 	}
 
+	@XmlElement
 	public HashMap<String, Double> getPrixCat() {
 		return tarif;
 	}
@@ -129,6 +142,7 @@ public abstract class Evenement {
 		this.tarif = tarif;
 	}
 
+	@XmlElement
 	public Date getDate() {
 		return date;
 	}
@@ -143,6 +157,19 @@ public abstract class Evenement {
 
 	public void setStade(Stade_Impl stade) {
 		this.stade = stade;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@XmlElement
+	public long getNbPlaceLibre(){
+		return getPlacesLibre().size();
 	}
 	
 	public ArrayList<Place> getPlacesLibre() {

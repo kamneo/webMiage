@@ -1,5 +1,6 @@
 package com.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -65,6 +66,7 @@ public class Client {
 	 * 
 	 * @return mail - mail du client
 	 */
+	@XmlAttribute
 	public String getMail() { // getter adresse mail
 		return mail;
 
@@ -75,7 +77,6 @@ public class Client {
 	 * @param mail
 	 *            - nouveau mail du client
 	 */
-	@XmlElement
 	public void setMail(String mail) { // setter adresse mail
 		this.mail = mail;
 	}

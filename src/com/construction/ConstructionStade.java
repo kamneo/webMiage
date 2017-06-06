@@ -72,15 +72,18 @@ public class ConstructionStade {
 					h4.add(e.getNomEsc());
 				c4.setEscalier(h4);
 			}else{
+				int size = o.getEscalier().values().size();
 				// Si ce n'est pas l'orientation "FOSSE" qui est a elle seule une catégorie
 				// les n/3 premiers escalier appartiennent à la catégorie 1, les n/3 suivant à la deuxieme catégorie et ainsi dessuite
+				compteur=0;
 				for(Escalier e: o.getEscalier().values()){
-					if(compteur < 1/3*o.getEscalier().values().size())
+					if(compteur < size/3)
 						h1.add(e.getNomEsc());
-					else if(compteur < 1/3*o.getEscalier().values().size())
+					else if(compteur < 2*size/3)
 						h2.add(e.getNomEsc());
 					else
 						h3.add(e.getNomEsc());
+					compteur++;
 				}
 			}
 		}

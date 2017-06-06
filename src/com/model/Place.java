@@ -1,5 +1,6 @@
 package com.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Place")
@@ -29,6 +30,7 @@ public class Place {
 	 * @return numero - numero de la place
 	 * getNumero renvoi le nuéro de la place
 	 */
+	@XmlAttribute
 	public int getNumero() {
 		return numero;
 	}

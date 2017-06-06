@@ -2,12 +2,19 @@ package com.model;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.construction.ConstructionStade;
 import com.model.Evenement.*;
 import com.utils.Utilitaire;
 
+@XmlRootElement
 public class Billeterie {
 	private static HashMap<Integer, Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
@@ -17,7 +24,7 @@ public class Billeterie {
 	private Billeterie() {
 		evenements = new HashMap<Integer, Evenement>();
 		reduction = new HashMap<Integer, Double>();
-		
+
 		setCategoriesDisponibles(ConstructionStade.getCategorie());
 	}
 
@@ -31,7 +38,7 @@ public class Billeterie {
 		}
 		return instance;
 	}
-	
+
 	public ArrayList<Evenement> getAllEvenements() {
 		ArrayList<Evenement> events = new ArrayList<Evenement>();
 		for (Evenement ev : evenements.values())
@@ -40,8 +47,13 @@ public class Billeterie {
 		return events;
 	}
 
+	@XmlElement(name = "evenements")
 	public HashMap<Integer, Evenement> getEvenements() {
 		return evenements;
+	}
+
+	public long getNbPlaceLibre(Evenement ev) {
+		return getPlacesLibre(ev).size();
 	}
 
 	public ArrayList<Place> getPlacesLibre(Evenement ev) {
@@ -60,6 +72,7 @@ public class Billeterie {
 		return ev.getPlacesLibre(idOrientation, idEscalier, idRang);
 	}
 
+	@XmlElement(name = "categories")
 	public ArrayList<Categorie> getCategoriesDisponibles() {
 		return categoriesDisponibles;
 	}
@@ -68,11 +81,13 @@ public class Billeterie {
 		this.categoriesDisponibles = categoriesDisponibles;
 	}
 
-	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif, String equipe1, String equipe2, String description) throws ParseException {
+	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif, String equipe1, String equipe2,
+			String description) throws ParseException {
 		evenements.put(evenements.size(), new Sport(nomEv, date, tarif, equipe1, equipe2, description));
 	}
 
-	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif, String description) throws ParseException {
+	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif, String description)
+			throws ParseException {
 		evenements.put(evenements.size(), new Musique(nomEv, date, tarif, description));
 	}
 
@@ -102,26 +117,36 @@ public class Billeterie {
 			i++;
 		evenements.put(i, ev);
 	}
-	
+
 	public void acheterPlace(Reservation reservation) throws Exception {
-		/*if(!reservation.validerReservation())
-			throw new Exception("Reservation non valide");
-		*/
+		/*
+		 * if(!reservation.validerReservation()) throw new
+		 * Exception("Reservation non valide");
+		 */
 		Reservation_BD rBD = Reservation_BD.getInstance();
 		rBD.ajouterResa(reservation);
 
-		// Changement à faux de la balise de disponibilité pour chaque place réservée
-		for(Billet b : reservation.getBillets().values()){
-			/*for(Orientation o :	getEvenement(reservation.getNomEv()).getStade().getOrientations())
-				if(o.getNom().equals(b.getOr().getNom()))
-						for(Escalier e : o.getEscalier().values())
-							if(e.getNomEsc().equals(b.getEsc().getNomEsc()))
-								for(Rang r : e.getRang().values())
-									if(r.getNumeroRang() == b.getRang().getNumeroRang())
-										for(Place p : r.getPlaces().values())
-											if(p.getNumero() == b.getPl().getNumero())
-												p.setEstLibre(false);*/
+		// Changement à faux de la balise de disponibilité pour chaque place
+		// réservée
+		for (Billet b : reservation.getBillets().values()) {
 			b.getPl().setEstLibre(false);
 		}
+	}
+
+	@SuppressWarnings("static-access")
+	public void load(Billeterie op) {
+		instance = op.getInstance();
+	}
+
+	public ArrayList<String> supprimerEvenementPasses() {
+		ArrayList<String> evenementSupp = new ArrayList<>();
+		for (Iterator<Map.Entry<Integer, Evenement>> it = evenements.entrySet().iterator(); it.hasNext();) {
+			Map.Entry<Integer, Evenement> e = it.next();
+			if (e.getValue().getDate().before(new Date())) { // Si la date est inferieure � vla date dujour on supprime l'�v�nement
+				evenementSupp.add(e.getValue().getNomEv());
+				it.remove();
+			}
+		}
+		return evenementSupp;
 	}
 }

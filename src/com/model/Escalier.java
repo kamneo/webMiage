@@ -2,6 +2,9 @@ package com.model;
 
 import java.util.HashMap;
 import com.model.Rang;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Escalier")
@@ -13,7 +16,7 @@ public class Escalier {
 	 * constructeur par défault
 	 */
 	public Escalier(){
-		
+		rang = new HashMap<Integer, Rang>();
 	}
 	
 	/**
@@ -34,6 +37,7 @@ public class Escalier {
 	 * @return nomEsc - nom de l'escalier
 	 * getNom renvoi le nom de l'escaliler
 	 */
+	@XmlAttribute
 	public String getNomEsc() {
 		return nomEsc;
 	}
@@ -50,6 +54,7 @@ public class Escalier {
 	 * @return rang- liste des rangs
 	 * getRang renvoi la liste des rang et de leur id
 	 */
+	@XmlElement(name="rang")
 	public HashMap<Integer, Rang> getRang() {
 		return rang;
 	}

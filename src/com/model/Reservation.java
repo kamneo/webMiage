@@ -1,15 +1,18 @@
 package com.model;
 import java.util.HashMap;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.model.Billeterie;
 
-
+@XmlRootElement
 public class Reservation {
 	private String nomEv; //nom unique de l'evenement
 	private HashMap<Integer, Billet> billets; //liste des billets reserves
 	private String mailClient; //client qui fais la reservation
 	
 	public Reservation(){
-		
+		billets= new HashMap<Integer, Billet>();
 	}
 		
 	public Reservation(String nomEv, HashMap<Integer, Billet> billets, String mailClient){

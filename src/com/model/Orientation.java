@@ -2,6 +2,8 @@ package com.model;
 
 import java.util.HashMap;
 import com.model.Escalier;
+
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Orientation")
@@ -13,7 +15,7 @@ public class Orientation {
 	 * Constructeur par défaut
 	 */
 	public Orientation(){
-		super();
+		escalier=new HashMap<String, Escalier>();
 	}
 	
 	/**
@@ -34,6 +36,7 @@ public class Orientation {
 	 * @return nom - nom de l'orientation
 	 * 
 	 */
+	@XmlAttribute
 	public String getNom() {
 		return nom;
 	}

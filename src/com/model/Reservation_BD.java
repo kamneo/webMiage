@@ -1,9 +1,11 @@
 package com.model;
 
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Reservation_BD {
 
 	private static Reservation_BD instance = null;

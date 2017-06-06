@@ -26,14 +26,6 @@ public class AjouterEvenement extends HttpServlet {
 	private Billeterie billeterie = Billeterie.getInstance();
 	private Map<String, String> erreurs = new HashMap<String, String>();
 	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AjouterEvenement() {
-        super();
-    }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -58,6 +50,7 @@ public class AjouterEvenement extends HttpServlet {
 		String description = request.getParameter("description");
 		String equipe2 = request.getParameter("equipe2");
 		String equipe1 = request.getParameter("equipe1");
+		erreurs = new HashMap<String, String>(); 
 		
 		// Controls sur le champ type
 		if(type == null){
@@ -117,6 +110,7 @@ public class AjouterEvenement extends HttpServlet {
 		tarif.put("cat3", Double.parseDouble(prixCat3));
 		if(type.equals("1")){
 			try {
+				System.out.println(date + " " + heure);
 				e = new Sport(nom, date+ " " +heure, tarif, equipe1, equipe2, description);
 				billeterie.ajouterEvenement(e);
 			} catch (ParseException e1) {

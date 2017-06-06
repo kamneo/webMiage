@@ -1,9 +1,9 @@
 package com.model;
 
-/**
- * @author kamneo
- *
- */
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Billet{
 	private Orientation or;
 	private Escalier esc;
@@ -87,6 +87,7 @@ public class Billet{
 	 * 
 	 * @return
 	 */
+	@XmlElement(name="place")
 	public Place getPl() {
 		return pl;
 	}
@@ -103,6 +104,7 @@ public class Billet{
 	 * 
 	 * @return
 	 */
+	@XmlElement(name="prix")
 	public double getPrix() {
 		return prix;
 	}

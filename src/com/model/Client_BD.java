@@ -2,6 +2,9 @@ package com.model;
 
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Client_BD {
 	private static Client_BD instance = null;
 	private static HashMap<String, Client> clients;

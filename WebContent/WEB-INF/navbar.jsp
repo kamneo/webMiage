@@ -17,6 +17,7 @@
 				<li class="page-scroll"><a href="ajouterEvenement">Ajouter un événement</a></li>
 				<li class="page-scroll"><a href="evenements">Rechercher un événement</a></li>
 				<li class="page-scroll"><a href="connexion">Connexion</a></li>
+				<li class="page-scroll"><a href="API">API</a></li>
 			</ul>
 		</div>
 	</div>

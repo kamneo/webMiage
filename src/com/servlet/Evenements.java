@@ -30,6 +30,7 @@ public class Evenements extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("evenementSupprime", billetterie.supprimerEvenementPasses());
 		request.setAttribute("evenements", billetterie.getEvenements());
 		this.getServletContext().getRequestDispatcher("/afficherEvenements.jsp").forward(request, response);
 	}

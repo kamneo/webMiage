@@ -1,8 +1,12 @@
 package com.model.Evenement;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.sun.xml.internal.txw2.annotation.XmlElement;
+
+@XmlRootElement
 public class Sport extends Evenement {
 	private String equipe1 = "";
 	private String equipe2 = "";
@@ -21,6 +25,16 @@ public class Sport extends Evenement {
 		this.typeEv=0;
 	}
 	
+	/**
+	 * 
+	 * @param nomEv
+	 * @param date - String au format "AAAA-MM-JJ HH:mm"
+	 * @param tarif
+	 * @param equipe1
+	 * @param equipe2
+	 * @param description
+	 * @throws ParseException
+	 */
 	public Sport(String nomEv, String date, HashMap<String, Double> tarif, String equipe1, String equipe2, String description) throws ParseException{
 		super(tarif, formatter.parse(date), nomEv, description);
 		this.catAccessibles = new String[3];
@@ -37,6 +51,7 @@ public class Sport extends Evenement {
 		this.equipe2=equipe2;
 	}
 
+	@XmlElement
 	public String getEquipe1() {
 		return equipe1;
 	}
@@ -45,6 +60,7 @@ public class Sport extends Evenement {
 		this.equipe1 = equipe1;
 	}
 
+	@XmlElement
 	public String getEquipe2() {
 		return equipe2;
 	}
