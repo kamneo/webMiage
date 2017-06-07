@@ -3,16 +3,23 @@ package com.metiers;
 import java.text.ParseException;
 import java.util.HashMap;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
 import com.model.Billeterie;
 import com.model.Reservation;
 
+@Path("/billetterie")
+@Produces("application/xml")
 public class BilleterieMetier {
 	private static Billeterie billeterie;
 	
 	public BilleterieMetier(){
 		billeterie = Billeterie.getInstance();
 	}
-
 
 	public static void creerSport(String nomEv, String date, HashMap<String, Double> tarif, String equipe1, String equipe2, String description) throws ParseException {
 		billeterie.creerSport(nomEv, date, tarif, equipe1, equipe2, description);

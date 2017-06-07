@@ -34,23 +34,23 @@ public class EvenementMetier {
 
     }
 	
-    /**
+	 /**
      * Methode qui retourne l'Ã©venement en fonction de son nom dans la billeterie. 
      * S'il l'evenement n'existe pas, un exception est générée.
      * @param nomEv - nom de l'evenement Ã  rechercher
      * @return Evenement - l'evenement recherchÃ©
      * @throws JAXBException 
      */
+	@GET
 	@Path("/{id}")
 	@Produces({"text/plain","application/xml","application/json"})
-    public Response getEvenement(@PathParam("id")String IdEv) throws JAXBException {
+    public String getEvenement(@PathParam("id")String IdEv) throws JAXBException {
 		int idEvenement = Integer.parseInt(IdEv);
-        if (Billeterie.getInstance().getEvenements().get(idEvenement) != null){
-        	String s = XMLMarshall.ObjectToString(Billeterie.getInstance().getEvenements().get(idEvenement));
-        	System.out.println(s);
-        	return Response.status(200).entity(s).build();
+		String s = "";
+		Evenement e = Billeterie.getInstance().getEvenements().get(idEvenement);
+        if (e != null){
+        	s = XMLMarshall.ObjectToString(e);
         }
-        return Response.status(200).entity("<?xml version=\"1.0\"?>" + "<hello> Errueur" + "</hello>").build();
+        return s;
     }
-
 }
