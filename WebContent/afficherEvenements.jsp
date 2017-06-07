@@ -57,6 +57,7 @@
 				<div class="container-billetterie text-center"">
 					<div style="margin-right: 5px;">
 						<button type="button" class="btn btn-primary">Reserver en ligne</button>
+						<button type="button" class="btn btn-danger" title="supprimer evenement"><span class="glyphicon glyphicon-trash"></span></button>
 					</div>
 				</div>
 			</div>
