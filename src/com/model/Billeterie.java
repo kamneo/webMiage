@@ -16,15 +16,17 @@ import com.utils.Utilitaire;
 
 @XmlRootElement
 public class Billeterie {
-	private static HashMap<Integer, Evenement> evenements;
+	private static ArrayList<Evenement> evenements;
 	private HashMap<Integer, Double> reduction;
 	private ArrayList<Categorie> categoriesDisponibles;
 	private static Billeterie instance = null;
 
 	private Billeterie() {
-		evenements = new HashMap<Integer, Evenement>();
+		evenements = new ArrayList< Evenement>();
 		reduction = new HashMap<Integer, Double>();
-
+		reduction.put(1, 0.7);
+		reduction.put(2, 0.9);
+		reduction.put(3, 1.);
 		setCategoriesDisponibles(ConstructionStade.getCategorie());
 	}
 
@@ -41,14 +43,14 @@ public class Billeterie {
 
 	public ArrayList<Evenement> getAllEvenements() {
 		ArrayList<Evenement> events = new ArrayList<Evenement>();
-		for (Evenement ev : evenements.values())
+		for (Evenement ev : evenements)
 			events.add(ev);
 
 		return events;
 	}
 
 	@XmlElement(name = "evenements")
-	public HashMap<Integer, Evenement> getEvenements() {
+	public ArrayList<Evenement> getEvenements() {
 		return evenements;
 	}
 
@@ -60,15 +62,15 @@ public class Billeterie {
 		return ev.getPlacesLibre();
 	}
 
-	public ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation) {
+	public ArrayList<Place> getPlacesLibre(Evenement ev, int idOrientation) {
 		return ev.getPlacesLibre(idOrientation);
 	}
 
-	public ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation, String idEscalier) {
+	public ArrayList<Place> getPlacesLibre(Evenement ev, int idOrientation, int idEscalier) {
 		return ev.getPlacesLibre(idOrientation, idEscalier);
 	}
 
-	public ArrayList<Place> getPlacesLibre(Evenement ev, String idOrientation, String idEscalier, int idRang) {
+	public ArrayList<Place> getPlacesLibre(Evenement ev, int idOrientation, int idEscalier, int idRang) {
 		return ev.getPlacesLibre(idOrientation, idEscalier, idRang);
 	}
 
@@ -83,18 +85,18 @@ public class Billeterie {
 
 	public void creerSport(String nomEv, String date, HashMap<String, Double> tarif, String equipe1, String equipe2,
 			String description) throws ParseException {
-		evenements.put(evenements.size(), new Sport(nomEv, date, tarif, equipe1, equipe2, description));
+		evenements.add(new Sport(nomEv, date, tarif, equipe1, equipe2, description));
 	}
 
 	public void creerMusique(String nomEv, String date, HashMap<String, Double> tarif, String description)
 			throws ParseException {
-		evenements.put(evenements.size(), new Musique(nomEv, date, tarif, description));
+		evenements.add(new Musique(nomEv, date, tarif, description));
 	}
 
 	public void supprimerEvenement(String nomEv) {
-		for (Evenement e : evenements.values())
+		for (Evenement e : evenements)
 			if (e.getNomEv().equals(nomEv)) {
-				evenements.values().remove(e);
+				evenements.remove(e);
 				return;
 			}
 	}
@@ -112,10 +114,7 @@ public class Billeterie {
 	}
 
 	public void ajouterEvenement(Evenement ev) {
-		Integer i = 0;
-		while (evenements.containsKey(i))
-			i++;
-		evenements.put(i, ev);
+		evenements.add(ev);
 	}
 
 	public void acheterPlace(Reservation reservation) throws Exception {
@@ -140,11 +139,10 @@ public class Billeterie {
 
 	public ArrayList<String> supprimerEvenementPasses() {
 		ArrayList<String> evenementSupp = new ArrayList<>();
-		for (Iterator<Map.Entry<Integer, Evenement>> it = evenements.entrySet().iterator(); it.hasNext();) {
-			Map.Entry<Integer, Evenement> e = it.next();
-			if (e.getValue().getDate().before(new Date())) { // Si la date est inferieure à vla date dujour on supprime l'événement
-				evenementSupp.add(e.getValue().getNomEv());
-				it.remove();
+		for (Evenement ev : evenements) {
+			if (ev.getDate().before(new Date())) { // Si la date est inferieure à vla date dujour on supprime l'événement
+				evenementSupp.add(ev.getNomEv());
+				evenements.remove(ev);
 			}
 		}
 		return evenementSupp;

@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import com.model.Escalier;
 
@@ -9,13 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Orientation")
 public class Orientation {
 	private String nom;
-	private HashMap<String,Escalier> escalier;
+	private ArrayList<Escalier> escalier;
 	
 	/**
 	 * Constructeur par défaut
 	 */
 	public Orientation(){
-		escalier=new HashMap<String, Escalier>();
+		escalier= new ArrayList<Escalier>();
 	}
 	
 	/**
@@ -26,9 +27,9 @@ public class Orientation {
 	 */
 	public Orientation(String nom, Escalier[] escaliers) {
 		this.nom=nom;
-		this.escalier=new HashMap<>();
+		this.escalier=new ArrayList<>();
 		for(int i=0; i<escaliers.length; i++){
-			escalier.put(escaliers[i].getNomEsc(), escaliers[i]);
+			escalier.add(escaliers[i]);
 		}
 	}
 	
@@ -52,7 +53,7 @@ public class Orientation {
 	/**
 	 * @return escalier - liste des escaliers
 	 */
-	public HashMap<String, Escalier> getEscalier() {
+	public ArrayList<Escalier> getEscalier() {
 		return escalier;
 	}
 	
@@ -60,15 +61,15 @@ public class Orientation {
 	 * @param escalier - liste des id/Escalier à affecter
 	 * setNom permet de remplacer la liste des couples id/Escalier pour une autre liste de couple
 	 */
-	public void setEscalier(HashMap<String, Escalier> escalier) {
+	public void setEscalier(ArrayList<Escalier> escalier) {
 		this.escalier = escalier;
 	}
 	
 	public Object clone() {
 		@SuppressWarnings("unchecked")
-		HashMap<Integer, Escalier> pc = (HashMap<Integer, Escalier>) escalier.clone();
+		ArrayList<Escalier> pc = (ArrayList<Escalier>) escalier.clone();
 		
-		Orientation o = new Orientation(nom, (Escalier[]) pc.values().toArray());
+		Orientation o = new Orientation(nom, (Escalier[]) pc.toArray());
 		
 		return o;
 	}

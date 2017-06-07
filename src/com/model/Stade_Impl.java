@@ -30,8 +30,8 @@ public class Stade_Impl {
 	public long getNbPlace() {
 		long count = 0;
 		for (Object o : orientation) {
-			for (Escalier e : ((Orientation) o).getEscalier().values()) {
-				for(Rang r : e.getRang().values()){
+			for (Escalier e : ((Orientation) o).getEscalier()) {
+				for(Rang r : e.getRang()){
 					count += r.getPlaces().size();
 				}
 			}

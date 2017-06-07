@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.xml.bind.annotation.XmlAttribute;
@@ -7,14 +8,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Rang")
 public class Rang {
-	private HashMap<Integer, Place> places;
+	private ArrayList<Place> places;
 	private int numeroRang;
 	
 	/**
 	 * constructeur par défault
 	 */
 	public Rang(){
-		places=new HashMap<Integer, Place>();
+		places=new ArrayList<Place>();
 	}
 	
 	/**
@@ -25,10 +26,10 @@ public class Rang {
 	 */
 	public Rang(int numeroRang, Place[] p){
 		this.setNumeroRang(numeroRang);
-		places = new HashMap<Integer, Place>();
+		places = new ArrayList<Place>();
 		
 		for(int i = 0; i<p.length; i++){
-			places.put(p[i].getNumero(), p[i]);
+			places.add(p[i]);
 		}
 		
 	}
@@ -37,7 +38,7 @@ public class Rang {
 	 * @return places - liste des places 
 	 * getPlaces renvoi les couple 'id/place 
 	 */
-	public HashMap<Integer, Place> getPlaces() {
+	public ArrayList<Place> getPlaces() {
 		return places;
 	}
 
@@ -45,7 +46,7 @@ public class Rang {
 	 * @param places - nouvelle liste de places
 	 * setPlaces permet d'attribuer de nouveau couple id/place
 	 */
-	public void setPlaces(HashMap<Integer, Place> places) {
+	public void setPlaces(ArrayList<Place> places) {
 		this.places = places;
 	}
 
@@ -68,9 +69,9 @@ public class Rang {
 
 	public Object clone() {
 		@SuppressWarnings("unchecked")
-		HashMap<Integer, Place> pc = (HashMap<Integer, Place>) places.clone();
+		ArrayList<Place> pc = (ArrayList<Place>) places.clone();
 		
-		Rang r = new Rang(numeroRang, (Place[]) pc.values().toArray());
+		Rang r = new Rang(numeroRang, (Place[]) pc.toArray());
 		
 		return r;
 	}

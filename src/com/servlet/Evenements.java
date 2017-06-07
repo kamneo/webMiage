@@ -23,7 +23,6 @@ public class Evenements extends HttpServlet {
     public Evenements() {
         super();
         billetterie = Billeterie.getInstance();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

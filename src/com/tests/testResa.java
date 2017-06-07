@@ -28,7 +28,7 @@ public class testResa {
 		System.out.println(b.getEvenements().get(1).getPlacesLibre().size());
 		
 		Orientation ob1 = e1.getStade().getOrientations().get(2);
-		Escalier esc = ob1.getEscalier().get("esc1");
+		Escalier esc = ob1.getEscalier().get(1);
 		Rang r = esc.getRang().get(1);
 		Place p = r.getPlaces().get(3);
 		

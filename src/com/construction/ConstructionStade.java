@@ -11,7 +11,7 @@ public class ConstructionStade {
 	public ConstructionStade() {
 		Orientation[] o = new Orientation[Utilitaire.getAllOrientation().size()];
 		for (int i = 0; i < o.length; i++) {
-				o[i] = new Orientation(Utilitaire.getAllOrientation().get(i), creerEscaliers(30, 30, 20));
+				o[i] = new Orientation(Utilitaire.getAllOrientation().get(i), creerEscaliers(5, 10, 15));
 		}
 
 		stade = new Stade_Impl("le plus beau", o);
@@ -63,29 +63,25 @@ public class ConstructionStade {
 		
 		long compteur = 0;
 		
-		for(Orientation o : cs.getStade().getOrientations()){
-			if(o.getNom().equals(Utilitaire.CATEGORIE_FOSSE)){
-				ArrayList<String> h4 = new ArrayList<String>();
-				c4.setNom("OR");
-				// Por chaque escalier contenu dans l'orientation on l'ajoute à la catégorie OR
-				for(Escalier e : o.getEscalier().values())
-					h4.add(e.getNomEsc());
-				c4.setEscalier(h4);
-			}else{
-				int size = o.getEscalier().values().size();
-				// Si ce n'est pas l'orientation "FOSSE" qui est a elle seule une catégorie
-				// les n/3 premiers escalier appartiennent à la catégorie 1, les n/3 suivant à la deuxieme catégorie et ainsi dessuite
-				compteur=0;
-				for(Escalier e: o.getEscalier().values()){
-					if(compteur < size/3)
-						h1.add(e.getNomEsc());
-					else if(compteur < 2*size/3)
-						h2.add(e.getNomEsc());
-					else
-						h3.add(e.getNomEsc());
-					compteur++;
-				}
-			}
+		ArrayList<String> h4 = new ArrayList<String>();
+		c4.setNom("OR");
+		// Por chaque escalier contenu dans l'orientation on l'ajoute à la catégorie OR
+		for(Escalier e : cs.getStade().getOrientations().get(1).getEscalier())
+			h4.add(e.getNomEsc());
+		c4.setEscalier(h4);
+		
+		int size = cs.getStade().getOrientations().get(1).getEscalier().size();
+		// Si ce n'est pas l'orientation "FOSSE" qui est a elle seule une catégorie
+		// les n/3 premiers escalier appartiennent à la catégorie 1, les n/3 suivant à la deuxieme catégorie et ainsi dessuite
+		compteur=0;
+		for(Escalier e: cs.getStade().getOrientations().get(1).getEscalier()){
+			if(compteur < size/3)
+				h1.add(e.getNomEsc());
+			else if(compteur < 2*size/3)
+				h2.add(e.getNomEsc());
+			else
+				h3.add(e.getNomEsc());
+			compteur++;
 		}
 
 		c1.setEscalier(h1);
