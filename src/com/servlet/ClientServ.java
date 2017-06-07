@@ -14,7 +14,7 @@ import com.model.Client;
 /**
  * Servlet implementation class Client
  */
-@WebServlet("/ClientServ")
+@WebServlet("/connexion")
 public class ClientServ extends HttpServlet {
 	/**
 	 * 
@@ -22,7 +22,7 @@ public class ClientServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher( "/afficherClient.jsp" ).forward( request, response );
+		this.getServletContext().getRequestDispatcher( "/FormulaireConnexInscrip.jsp" ).forward( request, response );
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -49,6 +49,6 @@ public class ClientServ extends HttpServlet {
 
 		request.setAttribute("client", client);
 		request.setAttribute("message", message);
-		this.getServletContext().getRequestDispatcher("/afficherClient.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/evenements").forward(request, response);
 	}
 }
