@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import com.model.Rang;
 
@@ -10,13 +11,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Escalier")
 public class Escalier {
 	private String nomEsc;
-	private HashMap<Integer,Rang> rang;
+	private ArrayList<Rang> rang;
 	
 	/**
 	 * constructeur par défault
 	 */
 	public Escalier(){
-		rang = new HashMap<Integer, Rang>();
+		rang = new ArrayList<Rang>();
 	}
 	
 	/**
@@ -27,9 +28,9 @@ public class Escalier {
 	 */
 	public Escalier(String nomEsc, Rang[] rangs) {
 		this.nomEsc=nomEsc ;
-		this.rang=new HashMap<>();
+		this.rang=new ArrayList<>();
 		for(int i=0; i<rangs.length; i++){
-			this.rang.put(i, rangs[i]);
+			this.rang.add(rangs[i]);
 		}
 	}
 	
@@ -55,7 +56,7 @@ public class Escalier {
 	 * getRang renvoi la liste des rang et de leur id
 	 */
 	@XmlElement(name="rang")
-	public HashMap<Integer, Rang> getRang() {
+	public ArrayList<Rang> getRang() {
 		return rang;
 	}
 	
@@ -63,15 +64,15 @@ public class Escalier {
 	 * @param rangs - Les couple id/rang à affecter à l'orientation
 	 * setRang permet de remplacer la liste des couples id/rang pour une autre liste de couple
 	 */
-	public void setRang(HashMap<Integer, Rang> rangs) {
+	public void setRang(ArrayList<Rang> rangs) {
 		this.rang = rangs;
 	}
 	
 	public Object clone() {
 		@SuppressWarnings("unchecked")
-		HashMap<Integer, Rang> pc = (HashMap<Integer, Rang>)rang.clone();
+		ArrayList<Rang> pc = (ArrayList<Rang>)rang.clone();
 		
-		Escalier e = new Escalier(nomEsc, (Rang[]) pc.values().toArray());
+		Escalier e = new Escalier(nomEsc, (Rang[]) pc.toArray());
 		
 		return e;
 	}

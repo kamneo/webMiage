@@ -175,70 +175,48 @@ public abstract class Evenement {
 	public ArrayList<Place> getPlacesLibre() {
 		ArrayList<Place> res = new ArrayList<Place>();
 
-		for (Orientation o : stade.getOrientations()) {
-			res.addAll(getPlacesLibre(o.getNom()));
+		for (int index=0;index<stade.getOrientations().size();index++) {
+			res.addAll(getPlacesLibre(index));
 		}
 		return res;
 	}
 
-	public ArrayList<Place> getPlacesLibre(String nomOrientation) {
+	public ArrayList<Place> getPlacesLibre(int indexOrientation) {
 		ArrayList<Place> res = new ArrayList<Place>();
-		int index = -1;
-		for(int i=0; i<stade.getOrientations().size();i++)
-			if(stade.getOrientations().get(i).getNom().equals(nomOrientation))
-				index = i;
 		
-		if(index == -1)
-			return res;
-
-		for (Escalier e : stade.getOrientations().get(index).getEscalier().values()) {
-			if (myContains(this.getOrientationAccessibles(), nomOrientation)) {
-				res.addAll(getPlacesLibre(nomOrientation, e.getNomEsc()));
+		int tailleListEscaliers = stade.getOrientations().get(indexOrientation).getEscalier().size();
+		for (int i =0; i<tailleListEscaliers;i++) {
+			if (myContains(this.getOrientationAccessibles(), indexOrientation)) {
+				res.addAll(getPlacesLibre(indexOrientation, i));
 			}
 		}
 		return res;
 	}
 
-	public ArrayList<Place> getPlacesLibre(String nomOrientation, String idEscalier) {
+	public ArrayList<Place> getPlacesLibre(int indexOrientation, int idEscalier) {
 		ArrayList<Place> res = new ArrayList<Place>();
-		int index = -1;
-		for(int i=0; i<stade.getOrientations().size();i++)
-			if(stade.getOrientations().get(i).getNom().equals(nomOrientation))
-				index = i;
-		
-		if(index == -1)
-			return res;
-
-		for (Rang r : stade.getOrientations().get(index).getEscalier().get(idEscalier).getRang().values()) {
-			if (myContains(this.getOrientationAccessibles(), nomOrientation)) {
-				res.addAll(getPlacesLibre(nomOrientation, idEscalier, r.getNumeroRang()));
+		for (Rang r : stade.getOrientations().get(indexOrientation).getEscalier().get(idEscalier).getRang()) {
+			if (myContains(this.getOrientationAccessibles(), indexOrientation)) {
+				res.addAll(getPlacesLibre(indexOrientation, idEscalier, r.getNumeroRang()));
 			}
 		}
 		return res;
 	}
 
-	public ArrayList<Place> getPlacesLibre(String nomOrientation, String idEscalier, int idRang) {
+	public ArrayList<Place> getPlacesLibre(int indexOrientation, int idEscalier, int idRang) {
 		ArrayList<Place> res = new ArrayList<Place>();
-		int index = -1;
-		for(int i=0; i<stade.getOrientations().size();i++)
-			if(stade.getOrientations().get(i).getNom().equals(nomOrientation))
-				index = i;
-		
-		if(index == -1)
-			return res;
-
-		for (Place p : stade.getOrientations().get(index).getEscalier().get(idEscalier).getRang().get(idRang)
-				.getPlaces().values()) {
-			if (myContains(this.getOrientationAccessibles(), nomOrientation) && p.isEstLibre()) {
+		for (Place p : stade.getOrientations().get(indexOrientation).getEscalier().get(idEscalier).getRang().get(idRang)
+				.getPlaces()) {
+			if (myContains(this.getOrientationAccessibles(), indexOrientation) && p.isEstLibre()) {
 				res.add(p);
 			}
 		}
 		return res;
 	}
 
-	private static boolean myContains(String[] op1, String op2) {
+	private static boolean myContains(String[] op1, int op2) {
 		for (int i = 0; i < op1.length; i++)
-			if (op1[i].equals(op2))
+			if (op1[i].equals(stade.getOrientations().get(op2).getNom()))
 				return true;
 
 		return false;

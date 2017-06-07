@@ -1,6 +1,7 @@
 package com.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Place")
@@ -47,6 +48,7 @@ public class Place {
 	 * @return estLibre - statue de la place
 	 * isEstLibre retourn true si la place est libre et false dans le cas contraire
 	 */
+	@XmlAttribute(name="libre")
 	public boolean isEstLibre() {
 		return estLibre;
 	}

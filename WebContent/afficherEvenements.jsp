@@ -36,22 +36,22 @@
 				<div class="date-txt" style="min-height: 75px;">
 					<div class="genre light cap">
 						<c:choose>
-							<c:when test="${evenement.value.getClass().getName().equals('com.model.Evenement.Sport') }">
+							<c:when test="${evenement.getClass().getName().equals('com.model.Evenement.Sport') }">
 								Evenement sportif
 							</c:when>
-							<c:when test="${evenement.value.getClass().getName().equals('com.model.Evenement.Concert') }">
+							<c:when test="${evenement.getClass().getName().equals('com.model.Evenement.Musique') }">
 								Evenement musical
 							</c:when>
 						</c:choose>
 					</div>
 					<div class="titre coul-txt cap">
-						<b>${evenement.value.getNomEv()}</b>
+						<b>${evenement.getNomEv()}</b>
 					</div>
 					<div class="date cap">
-						<b>${evenement.value.getDate() }</b>
+						<b>${evenement.getDate() }</b>
 					</div>
 					<div class="descrition cap">
-						<b>${evenement.value.getDescription() }</b>
+						<b>${evenement.getDescription() }</b>
 					</div>
 				</div>
 				<div class="container-billetterie text-center"">
