@@ -19,7 +19,7 @@ public class Client_BD {
 	/**
 	 * @return clients - liste des clients
 	 */
-	public static HashMap<String, Client> getClients() {
+	public HashMap<String, Client> getClients() {
 		return clients;
 	}
 
