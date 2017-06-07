@@ -20,7 +20,6 @@
 	<script type="text/javascript">
 		function onChangeRadio(){
 			var isChecked = false;
-			
 			if(document.getElementById('rencontreSportive').checked){
 				isChecked = true;
 				document.getElementById("nomEquipes").classList.remove('desaprouve');

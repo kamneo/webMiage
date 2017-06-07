@@ -54,10 +54,10 @@
 						<b>${evenement.getDescription() }</b>
 					</div>
 				</div>
-				<div class="container-billetterie text-center"">
+				<div class="container-billetterie text-center">
 					<div style="margin-right: 5px;">
-						<button type="button" class="btn btn-primary">Reserver en ligne</button>
-						<button type="button" class="btn btn-danger" title="supprimer evenement"><span class="glyphicon glyphicon-trash"></span></button>
+						<a href="/Billeterie/reservation?id=${evenement.getDate().getTime()}"><bouton type="button" class="btn btn-primary">Reserver en ligne</bouton></a>
+						<a href="/Billeterie/supprimer?id=${evenement.getDate().getTime()}"><button type="button" class="btn btn-danger" title="supprimer evenement"><span class="glyphicon glyphicon-trash"></span></button></a>
 					</div>
 				</div>
 			</div>
