@@ -22,18 +22,27 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
-				<form method="post" action="SessionServ">
+				<form method="post" action="connexion">
 					<div class="row control-group">
-						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label for="mail">Email</label> <input type="mail" class="form-control" placeholder="Email Address" id="mail" name="mail" required data-validation-required-message="Entrez votre Mail">
+						<div
+							class="form-group col-xs-12 floating-label-form-group controls">
+							<label for="mail">Email</label> <input type="mail"
+								class="form-control" placeholder="Email Address" id="mail"
+								name="mail" required
+								data-validation-required-message="Entrez votre Mail">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="row control-group">
-						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label for="mdp">Mot de passe</label> <input type="password" class="form-control" placeholder="Password" id="mdp" name="mdp" required data-validation-required-message="Entrez votre Mot de passe">
+						<div
+							class="form-group col-xs-12 floating-label-form-group controls">
+							<label for="mdp">Mot de passe</label> <input type="password"
+								class="form-control" placeholder="Password" id="mdp" name="mdp"
+								required
+								data-validation-required-message="Entrez votre Mot de passe">
 							<p class="help-block text-danger"></p>
 						</div>
+					<span class="erreur">${erreurs['id']}</span>
 					</div>
 					<br>
 					<div id="success"></div>
@@ -57,18 +66,29 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
-				<form method="post" action="ClientServ">
+				<form method="post" action="inscription">
 					<div class="row control-group">
-						<div class="form-group col-xs-12 floating-label-form-group controls">
-							<label for="mail">Email</label> <input type="mail" class="form-control" placeholder="Email Address" id="mail" name="mail" required data-validation-required-message="Entrez votre mail.">
+						<div
+							class="form-group col-xs-12 floating-label-form-group controls">
+							<label for="mail">Email</label> <input type="mail"
+								class="form-control" placeholder="Email Address" id="mail"
+								name="mail" required
+								data-validation-required-message="Entrez votre mail.">
 							<p class="help-block text-danger"></p>
 						</div>
+						<span class="erreur">${erreurs['mail1']}</span> <span
+							class="erreur">${erreurs['mail2']}</span>
+
 					</div>
 					<div class="row control-group">
 						<div
 							class="form-group col-xs-12 floating-label-form-group controls">
-							<label for="mdp">Mot de passe</label> <input type="password" class="form-control" placeholder="Password" id="mdp" name="mdp" required data-validation-required-message="Entrez le mdp." value="" size="20" maxlength="20" />
+							<label for="mdp">Mot de passe</label> <input type="password"
+								class="form-control" placeholder="Password" id="mdp" name="mdp"
+								required data-validation-required-message="Entrez le mdp."
+								value="" size="20" maxlength="20" />
 							<p class="help-block text-danger"></p>
+							<span class="erreur">${erreurs['mdp']}</span>
 						</div>
 						<div class="row control-group">
 							<div
@@ -77,13 +97,18 @@
 									class="form-control" placeholder="Nom" id="nom" name="nom"
 									required data-validation-required-message="Entrez votre nom.">
 								<p class="help-block text-danger"></p>
+								<span class="erreur">${erreurs['nom']}</span>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-12 floating-label-form-group controls">
-								<label for="prenom">Prenom</label> <input type="text" class="form-control" placeholder="Prenom" id="prenom" name="prenom" required data-validation-required-message="Entrez votre prenom.">
+								<label for="prenom">Prenom</label> <input type="text"
+									class="form-control" placeholder="Prenom" id="prenom"
+									name="prenom" required
+									data-validation-required-message="Entrez votre prenom.">
 								<p class="help-block text-danger"></p>
+								<span class="erreur">${erreurs['prenom']}</span>
 							</div>
 						</div>
 					</div>

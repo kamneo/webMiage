@@ -18,6 +18,10 @@
   				<strong>Info!</strong> l'événement <strong><c:out value="${ev }"></c:out></strong> a été supprimé car il est dépassé.
 			</div>
 		</c:forEach>
+		<c:if test="${!empty client.mail}">
+			Vous êtes connecté avec l'adresse mail <c:out value="${client.mail}" /> </br>
+		</c:if>
+		
 		<div>
 			<h2>Evenements à venir</h2>
 			<br />
