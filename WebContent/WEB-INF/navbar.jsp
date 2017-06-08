@@ -1,5 +1,4 @@
-<nav id="mainNav"
-		class="navbar navbar-default navbar-fixed-top navbar-custom">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
 	<div class="container">
 
 		<div class="navbar-header page-scroll">
