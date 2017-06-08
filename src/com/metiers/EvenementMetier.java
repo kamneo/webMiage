@@ -19,7 +19,7 @@ import com.serialisation.XMLMarshall;
 public class EvenementMetier {
 	
 	/**
-	 * methode qui retourne tous les évenements créés dans la billeterie
+	 * Methode qui retourne tous les évenements créés dans la billeterie
 	 * @return ArrayList<Evenement> - Liste des evenements disponible
 	 * @throws JAXBException 
 	 */
@@ -36,7 +36,7 @@ public class EvenementMetier {
 	
 	 /**
      * Methode qui retourne l'évenement en fonction de son nom dans la billeterie. 
-     * S'il l'evenement n'existe pas, un exception est g�n�r�e.
+     * S'il l'evenement n'existe pas, un exception est g�n�r�e.
      * @param nomEv - nom de l'evenement à rechercher
      * @return Evenement - l'evenement recherché
      * @throws JAXBException 

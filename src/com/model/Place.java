@@ -12,15 +12,18 @@ public class Place {
 	/**
 	 * constructeur par défault
 	 */
-	public Place(){
-		
+	public Place() {
+
 	}
-	
+
 	/**
-	 *
-	 * @param numero - numero de la place
-	 * @param estAchetee - statue de la place
-	 * Construit l'objet Place avec le numéro passe en premier paramètre et non réservé
+	 * Constructeur de place
+	 * 
+	 * @param numero
+	 *            - numero de la place
+	 * @param estAchetee
+	 *            - statue de la place Construit l'objet Place avec le numéro
+	 *            passe en premier paramètre et non réservé
 	 */
 	public Place(int numero) {
 		this.setNumero(numero);
@@ -28,8 +31,7 @@ public class Place {
 	}
 
 	/**
-	 * @return numero - numero de la place
-	 * getNumero renvoi le nuéro de la place
+	 * @return numero - numero de la place getNumero renvoi le nuéro de la place
 	 */
 	@XmlAttribute
 	public int getNumero() {
@@ -37,30 +39,34 @@ public class Place {
 	}
 
 	/**
-	 * @param numero - numero de la place
-	 * setNumero permet de changer le numéro de la place
+	 * @param numero
+	 *            - numero de la place setNumero permet de changer le numéro de
+	 *            la place
 	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
 	/**
-	 * @return estLibre - statue de la place
-	 * isEstLibre retourn true si la place est libre et false dans le cas contraire
+	 * @return estLibre - statue de la place isEstLibre retourn true si la place
+	 *         est libre et false dans le cas contraire
 	 */
-	@XmlAttribute(name="libre")
+	@XmlAttribute(name = "libre")
 	public boolean isEstLibre() {
 		return estLibre;
 	}
 
 	/**
-	 * @param estLibre - statue de la place
-	 * permet de changer la valeur de estLibre 
+	 * @param estLibre
+	 *            - statue de la place permet de changer la valeur de estLibre
 	 */
 	public void setEstLibre(boolean estLibre) {
 		this.estLibre = estLibre;
 	}
-	
+
+	/**
+	 * Methode pour cloner les places
+	 */
 	public Object clone() {
 		return new Place(numero);
 	}

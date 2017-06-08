@@ -4,39 +4,45 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Billet{
+public class Billet {
 	private Orientation or;
 	private Escalier esc;
 	private Rang rang;
 	private Place pl;
 	private double prix;
-	
+
 	/**
-	 * Constructeur par défault
+	 * Constructeur par dï¿½fault
 	 */
-	public Billet(){
-		
+	public Billet() {
+
 	}
-	
-/** 
- * Constructeur de billet
- * 
- * @param or orientation ou se situe la place
- * @param esc escalier ou se situe la place
- * @param rang rang ou se situe la place
- * @param pl place ou se situe la place
- * @param prix prix ou se situe la place
- */
-	public Billet(Orientation or, Escalier esc, Rang rang, Place pl, double prix){
+
+	/**
+	 * Constructeur de billet
+	 * 
+	 * @param or
+	 *            orientation ou se situe la place
+	 * @param esc
+	 *            escalier ou se situe la place
+	 * @param rang
+	 *            rang ou se situe la place
+	 * @param pl
+	 *            place ou se situe la place
+	 * @param prix
+	 *            prix ou se situe la place
+	 */
+	public Billet(Orientation or, Escalier esc, Rang rang, Place pl, double prix) {
 		this.setOrientation(or);
 		this.setEsc(esc);
 		this.setRang(rang);
 		this.setPl(pl);
-		this.setPrix(prix);	
+		this.setPrix(prix);
 	}
 
 	/**
-	 * Retourne l'orientation à laquelle se trouve la place
+	 * Retourne l'orientation ï¿½ laquelle se trouve la place
+	 * 
 	 * @return Orientation
 	 */
 	public Orientation getOrientation() {
@@ -44,8 +50,10 @@ public class Billet{
 	}
 
 	/**
-	 * Permet la modification de l'orientation à laquelle se trouve la place
-	 * @param or - Orientation
+	 * Permet la modification de l'orientation ï¿½ laquelle se trouve la place
+	 * 
+	 * @param or
+	 *            - Orientation
 	 */
 	public void setOrientation(Orientation or) {
 		this.or = or;
@@ -53,6 +61,7 @@ public class Billet{
 
 	/**
 	 * Retourne l'escalier ou est la place
+	 * 
 	 * @return
 	 */
 	public Escalier getEsc() {
@@ -61,6 +70,7 @@ public class Billet{
 
 	/**
 	 * Permet la modification de l'ecalier d'ou se trouve la place
+	 * 
 	 * @param esc
 	 */
 	public void setEsc(Escalier esc) {
@@ -68,14 +78,16 @@ public class Billet{
 	}
 
 	/**
-	 * Retourn le rang ou se trouve la place
+	 * Getter de l'objet rang
+	 * 
 	 * @return
 	 */
 	public Rang getRang() {
 		return rang;
 	}
-	
+
 	/**
+	 * Setter de l'objet rang
 	 * 
 	 * @param rang
 	 */
@@ -84,15 +96,17 @@ public class Billet{
 	}
 
 	/**
+	 * Getter de l'objet place
 	 * 
 	 * @return
 	 */
-	@XmlElement(name="place")
+	@XmlElement(name = "place")
 	public Place getPl() {
 		return pl;
 	}
 
 	/**
+	 * Setter de l'objet place
 	 * 
 	 * @param pl
 	 */
@@ -101,15 +115,17 @@ public class Billet{
 	}
 
 	/**
+	 * Getter de l'objet prix
 	 * 
 	 * @return
 	 */
-	@XmlElement(name="prix")
+	@XmlElement(name = "prix")
 	public double getPrix() {
 		return prix;
 	}
 
 	/**
+	 * Setter de l'objet prix
 	 * 
 	 * @param prix
 	 */

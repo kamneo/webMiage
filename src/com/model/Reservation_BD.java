@@ -11,19 +11,25 @@ public class Reservation_BD {
 	private static Reservation_BD instance = null;
 	private HashMap<Long, Reservation> reservations;
 
+	/**
+	 * Constructeur par defaut
+	 */
 	private Reservation_BD() {
 		reservations = new HashMap<Long, Reservation>();
 	}
 
 	/**
+	 * Setter des objets reservations
 	 * 
-	 * @param reservations - liste des réservations
+	 * @param reservations
+	 *            - liste des réservations
 	 */
 	public void setReservations(HashMap<Long, Reservation> reservations) {
 		this.reservations = reservations;
 	}
 
 	/**
+	 * Getter de la liste des reservations
 	 * 
 	 * @return la liste des reservations
 	 */
@@ -32,8 +38,10 @@ public class Reservation_BD {
 	}
 
 	/**
+	 * Methode pour ajouter une reservation a la liste
 	 * 
-	 * @param nouvResa - nouvelle reservation a rajouter à la liste
+	 * @param nouvResa
+	 *            - nouvelle reservation a rajouter à la liste
 	 */
 	public void ajouterResa(Reservation nouvResa) {
 		long id = Calendar.getInstance().getTime().getTime();

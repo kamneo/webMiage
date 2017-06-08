@@ -12,6 +12,9 @@ public class Client {
 	private String prenom; // prenom du client
 	private boolean estAdmin; // statut du client
 
+	/**
+	 * Constructeur par defaut
+	 */
 	public Client() { // contructeur par defaut
 		mail = null;
 		mdp = null;
@@ -23,7 +26,7 @@ public class Client {
 	/**
 	 * 
 	 * @param mail
-	 *            - mail du client
+	 *            mail du client
 	 * @param mdp
 	 *            - mot de passe du client
 	 * @param nom

@@ -9,8 +9,8 @@ public class Client_BD {
 	private static Client_BD instance = null;
 	private static HashMap<String, Client> clients;
 
-	/** 
-	 * Constructeur privé 
+	/**
+	 * Constructeur privé
 	 */
 	private Client_BD() {
 		clients = new HashMap<String, Client>();
@@ -24,15 +24,18 @@ public class Client_BD {
 	}
 
 	/**
-	 * @param clients - nouvelle liste des clients 
+	 * @param clients
+	 *            - nouvelle liste des clients
 	 */
 	public void setClients(HashMap<String, Client> clients) {
 		this.clients = clients;
 	}
-	
+
 	/**
+	 * Methode pour ajouter un nouveau client a la liste des clients
 	 * 
-	 * @param nouvClient - client a ajouter a la liste
+	 * @param nouvClient
+	 *            - client a ajouter a la liste
 	 */
 	public void ajouterClients(Client nouvClient) throws Exception {
 		// test d'unicité du client par rapport à son adresse mail
@@ -43,8 +46,8 @@ public class Client_BD {
 			this.clients.put(nouvClient.getMail(), nouvClient);
 	}
 
-	/** 
-	 * Point d'accès pour l'instance unique du singleton 
+	/**
+	 * Point d'accès pour l'instance unique du singleton
 	 */
 	public static synchronized Client_BD getinstance() {
 		if (instance == null) {
