@@ -18,10 +18,11 @@ public class Musique extends Evenement {
 		this.catAccessibles[1] = "Argent";
 		this.catAccessibles[2] = "Bronze";
 		this.catAccessibles[3] = "Terrain";
-		this.orientationAccessibles = new String[3];
+		this.orientationAccessibles = new String[4];
 		this.orientationAccessibles[0] = "Nord";
 		this.orientationAccessibles[1] = "Sud";
 		this.orientationAccessibles[2] = "Est";
+		this.orientationAccessibles[3] = "Fosse";
 		this.typeEv = 1;
 		this.description = "";
 	}
@@ -47,10 +48,11 @@ public class Musique extends Evenement {
 		this.catAccessibles[1] = "Argent";
 		this.catAccessibles[2] = "Bronze";
 		this.catAccessibles[3] = "Terrain";
-		this.orientationAccessibles = new String[3];
+		this.orientationAccessibles = new String[4];
 		this.orientationAccessibles[0] = "Nord";
 		this.orientationAccessibles[1] = "Sud";
 		this.orientationAccessibles[2] = "Est";
+		this.orientationAccessibles[3] = "Fosse";
 		this.typeEv = 1;
 	}
 

@@ -17,6 +17,14 @@
     <servlet-name>ClientServ</servlet-name>
     <servlet-class>com.servlet.ClientServ</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>AjaxEscalier</servlet-name>
+    <servlet-class>com.servlet.AjaxEscalier</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>reservation</servlet-name>
+    <servlet-class>com.servlet.Reservation</servlet-class>
+  </servlet>
   <servlet>
   <servlet-name>Jersey REST Service</servlet-name>
 <servlet-class>

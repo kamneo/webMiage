@@ -38,6 +38,15 @@ public class Rang {
 
 	}
 
+	public Rang(int numeroRang, ArrayList<Place> places) {
+		this.setNumeroRang(numeroRang);
+		places = new ArrayList<Place>();
+
+		for (Place p : places) {
+			places.add(p);
+		}
+	}
+
 	/**
 	 * @return places - liste des places getPlaces renvoi les couple 'id/place
 	 */

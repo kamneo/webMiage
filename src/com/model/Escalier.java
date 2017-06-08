@@ -38,6 +38,15 @@ public class Escalier {
 		}
 	}
 
+	public Escalier(String nomEsc, ArrayList<Rang> rangs) {
+		this.nomEsc=nomEsc ;
+		this.rang=new ArrayList<>();
+		for(Rang r: rangs) {
+			this.rang.add(r);
+		}
+	}
+	
+
 	/**
 	 * Getter nom de l'escalier
 	 * 
