@@ -2,6 +2,7 @@ package com.servlet;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -78,9 +79,9 @@ public class AjouterEvenement extends HttpServlet {
 		}
 
 		// Controls sur le champ des prix
-		validatePrix("Cat1", prixCat1);
-		validatePrix("Cat2", prixCat2);
-		validatePrix("Cat3", prixCat3);
+		validatePrix("categorie 1", prixCat1);
+		validatePrix("categorie 2", prixCat2);
+		validatePrix("categorie 3", prixCat3);
 		if(type != null && type.equals("2")){
 			validatePrix("OR", prixOR);
 		}else{
@@ -95,19 +96,11 @@ public class AjouterEvenement extends HttpServlet {
 			}
 		}
 		
-		for(String s : erreurs.values())
-			System.out.println(s);
-		
-		if(erreurs.size() != 0){
-			request.setAttribute("erreurs", erreurs);
-			doGet(request, response);
-		}
-		
 		Evenement e = null;
 		HashMap<String, Double> tarif = new HashMap<>();
-		tarif.put("cat1", Double.parseDouble(prixCat1));
-		tarif.put("cat2", Double.parseDouble(prixCat2));
-		tarif.put("cat3", Double.parseDouble(prixCat3));
+		tarif.put("categorie 1", Double.parseDouble(prixCat1));
+		tarif.put("categorie 2", Double.parseDouble(prixCat2));
+		tarif.put("categorie 3", Double.parseDouble(prixCat3));
 		if(type.equals("1")){
 			try {
 				System.out.println(date + " " + heure);
@@ -126,6 +119,16 @@ public class AjouterEvenement extends HttpServlet {
 			}
 		}else
 			erreurs.put("path", "Un problème est survenue ! <br> veuillez recommencer");
+		
+		if(e.getDate().before(new Date())){
+			erreurs.put("date", "la date de l'evenement est antérieur à celle d'aujourd'hui !");
+			Billeterie.getInstance().supprimerEvenement(e.getDate().getTime());
+		}
+		
+		if(erreurs.size() != 0){
+			request.setAttribute("erreurs", erreurs);
+			doGet(request, response);
+		}
 		
 		response.sendRedirect("evenements");
 	}

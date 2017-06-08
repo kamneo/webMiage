@@ -34,12 +34,14 @@ public abstract class Evenement {
 	protected int typeEv;
 	protected static Stade_Impl stade;
 	protected String description;
+	protected long idEv;
 
 	public Evenement() {
 		ConstructionStade cs = new ConstructionStade();
 
 		stade = cs.getStade();
 		date = new Date();
+		idEv = date.getTime();
 	}
 
 	/**
@@ -63,6 +65,7 @@ public abstract class Evenement {
 		this.date = date;
 		this.nomEv = nomEv;
 		this.description = description;
+		idEv=date.getTime();
 	}
 
 	/**
@@ -312,6 +315,15 @@ public abstract class Evenement {
 			}
 		}
 		return res;
+	}
+
+	@XmlAttribute
+	public long getIdEv() {
+		return idEv;
+	}
+
+	public void setIdEv(long idEv) {
+		this.idEv = idEv;
 	}
 
 	/**

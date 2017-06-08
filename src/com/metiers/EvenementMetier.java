@@ -26,13 +26,17 @@ public class EvenementMetier {
 	@GET
 	@Produces({"text/plain","application/xml","application/json"})
     public String getAllEvenement() throws JAXBException {
-		String s = "";
+		String entete = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
+		String s = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + System.getProperty("line.separator") + "<evenements>";
+		String strEv = "";
 		for(Evenement ev : Billeterie.getInstance().getAllEvenements()){
-			s += XMLMarshall.ObjectToString(ev);
+			strEv = XMLMarshall.ObjectToString(ev);
+			s += strEv.substring(entete.length());
 		}
-		return s;
+		return s + "</evenements>";
 
     }
+
 	
 	 /**
      * Methode qui retourne l'évenement en fonction de son nom dans la billeterie. 

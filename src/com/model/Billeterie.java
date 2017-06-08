@@ -65,6 +65,20 @@ public class Billeterie {
 	public ArrayList<Evenement> getEvenements() {
 		return evenements;
 	}
+	
+
+	/**
+	 * Getter sur un evenement en fonction de sont nom
+	 * @param nomEv
+	 *            nom de l'evenement
+	 * @return l'evenement s'il a été trouvé sinon null
+	 */
+	public Evenement getEvenement(String nomEv) {
+		for(Evenement e : evenements)
+			if(e.getNomEv().equals(nomEv))
+				return e;
+		return null;
+	}
 
 	/**
 	 * Getter du nombre de places disponibles pour un evenement
@@ -212,8 +226,12 @@ public class Billeterie {
 	 * @param idEv
 	 *            identifiant de l'evenement
 	 */
-	public void supprimerEvenement(int idEv) {
-		evenements.remove(idEv);
+	public void supprimerEvenement(long idEv) {
+		for (Evenement e : evenements)
+			if (e.getDate().getTime() == idEv) {
+				evenements.remove(e);
+				return;
+			}
 	}
 
 	/**
