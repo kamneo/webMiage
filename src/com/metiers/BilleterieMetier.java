@@ -47,11 +47,11 @@ public class BilleterieMetier {
 	 */
 	@GET
 	@Path("reserver/{idEv}/{nomOr}/{nomEsc}/{numRang}/{numPlace}/{idReduc}/{mail}")
-	public static void reserver(@PathParam("idEv") String idEv, @PathParam("nomOr") String nomOr,
+	public static Place reserver(@PathParam("idEv") String idEv, @PathParam("nomOr") String nomOr,
 			@PathParam("nomEsc") String nomEsc, @PathParam("numRang") String numRang, @PathParam("numPlace") String numPlace,
-			@PathParam("idReduc") String idReduc, @PathParam("mail") String mail) throws Exception {
+			@PathParam("idReduc") String idReduc, @PathParam("mail") String mail) throws Exception  {
 		Billeterie b = Billeterie.getInstance();
-		Evenement e = b.getEvenements().get(Integer.parseInt(idEv));
+		Evenement e = b.getEvenement(Long.parseLong(idEv));
 		Orientation or = e.getStade().getOrientations().stream().filter(o -> o.getNom().equals(nomOr)).findFirst()
 				.get();
 
@@ -61,7 +61,10 @@ public class BilleterieMetier {
 				.get();
 
 		Place pl = rang.getPlaces().stream().filter(p -> p.getNumero() == Integer.parseInt(numPlace)).findFirst().get();
-
+		
+		if(!pl.isEstLibre())
+			throw new Exception("la place est déjà réservée");
+		
 		String idCat = "categorie 1";
 		for (Categorie c : b.getCategoriesDisponibles())
 			if(!c.getNomCat().equals("OR"))
@@ -73,6 +76,7 @@ public class BilleterieMetier {
 				* (or.getNom().equals("Fosse") ? e.getPrixCat("OR") : e.getPrixCat(idCat));
 
 		billeterie.acheterPlace(new Reservation(e.getNomEv(), new Billet(or, esc, rang, pl, prix), mail));
+		return pl;
 	}
 
 }

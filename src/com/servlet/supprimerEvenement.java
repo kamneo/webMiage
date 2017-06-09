@@ -29,13 +29,13 @@ public class supprimerEvenement extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Si l'identifiant n'est pas présent on retourne une erreur
-		if(request.getParameter("id") == null || request.getParameter("id") .equals("")){
+		if(request.getParameter("idEvent") == null || request.getParameter("idEvent") .equals("")){
 			request.setAttribute("erreur", "Erreur de transmission de l'indentifiant de l'envenement");
 			this.getServletContext().getRequestDispatcher("/erreurDeSuppression.jsp").forward(request, response);
 			return;
 		}
 		
-		long id = Long.parseLong(request.getParameter("id"));
+		long id = Long.parseLong(request.getParameter("idEvent"));
 		Billeterie.getInstance().getEvenements().forEach(k -> {
 			if(k.getDate().getTime() == id)
 				request.setAttribute("evenementSupp", k.getNomEv());

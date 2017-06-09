@@ -18,6 +18,17 @@
   				<strong>Info!</strong> l'événement <strong><c:out value="${ev }"></c:out></strong> a été supprimé car il est dépassé.
 			</div>
 		</c:forEach>
+		<c:if test="${evenementSupp != null}">
+			<div class="alert alert-info">
+  				<strong>Info!</strong> l'événement <strong><c:out value="${evenementSupp }"></c:out></strong> a bien été supprimé.
+			</div>
+		</c:if>
+		<c:if test="${messageJocker != null}">
+			<div class="alert alert-info">
+  				<strong>Info!</strong> <c:out value="${messageJocker }"></c:out>
+			</div>
+		</c:if>
+		
 		<div>
 			<h2>Evenements à venir</h2>
 			<br />

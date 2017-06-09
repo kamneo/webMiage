@@ -80,6 +80,13 @@ public class Billeterie {
 		return null;
 	}
 
+	public Evenement getEvenement(long idEvent) {
+		for(Evenement e : evenements)
+			if(e.getDate().getTime() == idEvent)
+				return e;
+		return null;
+	}
+
 	/**
 	 * Getter du nombre de places disponibles pour un evenement
 	 * 
@@ -271,14 +278,14 @@ public class Billeterie {
 	 *            Objet contenant les places selectionnees
 	 * @throws Exception
 	 */
-	public void acheterPlace(Reservation reservation) throws Exception {
+	public void acheterPlace(Reservation reservation)  {
 		/*
 		 * if(!reservation.validerReservation()) throw new
 		 * Exception("Reservation non valide");
 		 */
-		Reservation_BD rBD = Reservation_BD.getInstance();
-		rBD.ajouterResa(reservation);
-
+		//Reservation_BD rBD = Reservation_BD.getInstance();
+		//rBD.ajouterResa(reservation);
+System.out.println("toto");
 		// Changement à faux de la balise de disponibilité pour chaque place
 		// réservée
 		for (Billet b : reservation.getBillets().values()) {
